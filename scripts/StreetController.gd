@@ -41,7 +41,7 @@ func _physics_process(delta : float) -> void:
 			new_sprite.texture = texture
 			new_sprite.position = texture_array.back().position + Vector2(texture_width, 0)
 			
-			obstacle_handler.add_obstacles_in_area(Rect2(new_sprite.position-new_sprite.texture.get_size(), new_sprite.texture.get_size()))
+			obstacle_handler.add_obstacles_in_area(Rect2(new_sprite.position-new_sprite.texture.get_size()/2, new_sprite.texture.get_size()))
 			
 			
 			

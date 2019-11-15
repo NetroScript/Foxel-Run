@@ -5,4 +5,7 @@ func _ready():
 	pass
 	
 func add_obstacles_in_area(area : Rect2):
+	
+	
+	print(area)
 	pass
