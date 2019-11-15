@@ -4,9 +4,9 @@
 
 [node name="Node2D" type="Area2D"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 7.34679, -3.21377, 7.34679, 4.48827, 4.25986, 5.2218, -5.70389, 5.40518, -7.20151, 1.76811, -7.2932, -4.16124, -2.8309, -6.33126, 4.77944, -6.39239 )
-
 [node name="Tonne" type="Sprite" parent="."]
-position = Vector2( 1.1213, 3.0826 )
+position = Vector2( 10.2897, 10.5283 )
 texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 5.3201, 3.46224, 0.780334, 10.2334, 4.70454, 17.4663, 15.3999, 17.851, 20.3244, 10.5412, 16.3232, 3.3853 )
