@@ -21,18 +21,11 @@ _global_script_class_icons={
 [application]
 
 config/name="GameJam"
-run/main_scene="res://Main Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 UserData="*res://addons/github-integration/scripts/user_data.gd"
-
-[display]
-
-window/size/width=640
-window/size/height=360
-window/handheld/orientation="portrait"
 
 [editor_plugins]
 
