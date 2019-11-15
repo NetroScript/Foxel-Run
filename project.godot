@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://git_api.gdns"
+} ]
 _global_script_class_icons={
-
+"GitAPI": ""
 }
 
 [application]
@@ -18,6 +23,21 @@ _global_script_class_icons={
 config/name="GameJam"
 config/icon="res://icon.png"
 
+[autoload]
+
+UserData="*res://addons/github-integration/scripts/user_data.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "zylann.translation_editor" )
+
+[gdnative]
+
+singletons=[ "res://git_api.gdnlib" ]
+
 [rendering]
 
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
