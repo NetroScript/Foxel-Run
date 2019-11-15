@@ -5,8 +5,11 @@
 
 [node name="Running Scene" type="Node2D"]
 
+[node name="Node2D2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 154.28, 37.7536 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 10.8805, 78.3448 )
 
-[node name="Node2D" parent="Player" instance=ExtResource( 1 )]
-position = Vector2( 146.845, 54.959 )
+[node name="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 147.707, 133.323 )
