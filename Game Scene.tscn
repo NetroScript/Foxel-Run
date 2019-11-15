@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://objects/obstacles/Kotze.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://graphics/background/Street.png" type="Texture" id=3]
 
 [node name="Running Scene" type="Node2D"]
 
-[node name="Node2D2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 154.28, 37.7536 )
-
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 10.8805, 78.3448 )
+[node name="Street" type="Sprite" parent="."]
+position = Vector2( 152.806, 79.0552 )
+texture = ExtResource( 3 )
 
 [node name="Node2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 147.707, 133.323 )
+position = Vector2( 157.726, 133.304 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 10.88, 90.285 )
