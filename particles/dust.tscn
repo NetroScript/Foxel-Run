@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 3
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 1.54143e-043, 0.992857 )
-colors = PoolColorArray( 0.796078, 0.505882, 0.145098, 1, 0.764706, 0.509804, 0.152941, 0.490196, 0.756863, 0.537255, 0.262745, 0 )
+colors = PoolColorArray( 0.787131, 0.471879, 0.079943, 1, 0.764706, 0.509804, 0.152941, 0.878431, 0.756863, 0.537255, 0.262745, 0 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
@@ -19,9 +22,10 @@ orbit_velocity_random = 0.0
 color_ramp = SubResource( 2 )
 
 [node name="Node2D" type="Particles2D"]
+material = SubResource( 4 )
 position = Vector2( 0, 0.0182996 )
 scale = Vector2( 0.99705, 1 )
-amount = 100
+amount = 150
 lifetime = 0.9
 local_coords = false
 process_material = SubResource( 3 )
