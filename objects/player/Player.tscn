@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://graphics/Player/default.png" type="Texture" id=1]
+
+[node name="Player" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 11.0075, -10.611, 14.2473, -8.74812, 19.9169, -4.61739, 22.5898, -1.53959, 22.5898, 0.728258, 13.3564, 8.98972, 10.2786, 8.98972, 8.41568, 5.83093, -6.64934, 5.66894, -12.8049, 4.53501, -11.0231, -6.31828, 6.95777, -6.80425 )
+
+[node name="default" type="Sprite" parent="."]
+position = Vector2( -2.57352, -0.426775 )
+texture = ExtResource( 1 )

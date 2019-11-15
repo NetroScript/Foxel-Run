@@ -21,11 +21,18 @@ _global_script_class_icons={
 [application]
 
 config/name="GameJam"
+run/main_scene="res://Main Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 UserData="*res://addons/github-integration/scripts/user_data.gd"
+
+[display]
+
+window/size/width=320
+window/size/height=180
+window/handheld/orientation="portrait"
 
 [editor_plugins]
 
@@ -34,6 +41,29 @@ enabled=PoolStringArray( "zylann.translation_editor" )
 [gdnative]
 
 singletons=[ "res://git_api.gdnlib" ]
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
 
 [rendering]
 
