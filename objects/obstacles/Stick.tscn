@@ -2,7 +2,7 @@
 
 [ext_resource path="res://graphics/obstacles/Stick.png" type="Texture" id=1]
 
-[node name="Node2D" type="Area2D"]
+[node name="Stick" type="Area2D"]
 
 [node name="Stick" type="Sprite" parent="."]
 position = Vector2( 31.3569, 23.6029 )

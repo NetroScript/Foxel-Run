@@ -9,13 +9,31 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Background",
+"language": "GDScript",
+"path": "res://scripts/StreetController.gd"
+}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://git_api.gdns"
+}, {
+"base": "Node2D",
+"class": "ObstacleHandler",
+"language": "GDScript",
+"path": "res://scripts/ObstacleHandler.gd"
+}, {
+"base": "Node2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scripts/player/Player.gd"
 } ]
 _global_script_class_icons={
-"GitAPI": ""
+"Background": "",
+"GitAPI": "",
+"ObstacleHandler": "",
+"Player": ""
 }
 
 [application]
@@ -26,15 +44,12 @@ config/icon="res://icon.png"
 
 [autoload]
 
-UserData="*res://addons/github-integration/scripts/user_data.gd"
+UserData="res://addons/github-integration/scripts/user_data.gd"
+Controller="*res://scripts/Controls.gd"
 
 [display]
 
-window/size/width=320
-window/size/height=180
 window/handheld/orientation="portrait"
-window/stretch/mode="viewport"
-window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
@@ -71,5 +86,4 @@ texture={
 
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
-quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"

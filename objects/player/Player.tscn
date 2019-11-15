@@ -1,9 +1,45 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://graphics/Player/default.png" type="Texture" id=1]
-[ext_resource path="res://particles/dust.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/player/Player.gd" type="Script" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Camera2D
+# Script to change the zoom when changing the window size
+
+
+# The height of the game
+var height : int = 180
+var max_width_factor : float = 3
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	# On window resize also call size_changed
+	get_tree().get_root().connect(\"size_changed\", self, \"_resize\")
+	_resize()
+
+# Function to rescale the viewport to fit the window size
+func set_map_size() -> void:
+
+	# To make up for the changed size, we need to zoom our camera out / in
+	zoom = Vector2(1,1) * (height / max(0.1, get_viewport_rect().size.y))
+	offset.x = (get_viewport_rect().size.x * 0.4)*zoom.x
+	print(offset)
+
+
+# Called on resize for full responsiveness
+func _resize() -> void:
+	print(OS.window_size)
+
+	OS.max_window_size = Vector2(OS.window_size.y*max_width_factor, 1000000)
+	#if get_viewport_rect().size.y * max_width_factor < get_viewport_rect().size.x:
+		
+	set_map_size()
+"
 
 [node name="Player" type="Node2D"]
+scale = Vector2( 2.5, 2.5 )
+script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -22,3 +58,4 @@ texture = ExtResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 100, 0 )
 current = true
+script = SubResource( 1 )
