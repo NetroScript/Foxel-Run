@@ -33,6 +33,8 @@ UserData="*res://addons/github-integration/scripts/user_data.gd"
 window/size/width=320
 window/size/height=180
 window/handheld/orientation="portrait"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 
 [editor_plugins]
 
