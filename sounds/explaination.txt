@@ -1,0 +1,6 @@
+fox_hit.wav = in die Gießkanne gesprochen
+fox_hit2.wav = in die Gießkanne gesprochen
+fox_hit_stick = Flasche mit dem Gummi dran
+fox_rascheln = durch die Kiste rascheln
+fox_throwup = in die Gießkanne gesprochen
+
