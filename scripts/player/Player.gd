@@ -1,7 +1,7 @@
 extends Node2D
 class_name Player
 
-export var speed : float = 50
+export var speed : float = 100
 var movement : float = 0
 export var health : int = 3 setget set_health
 var lastaction: int = 0

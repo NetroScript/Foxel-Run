@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://graphics/obstacles/Kotzeoderdreck.png" type="Texture" id=1]
 [ext_resource path="res://scripts/obstacles/Obstacle.gd" type="Script" id=2]
+[ext_resource path="res://shaders/used/obstacle_glow.tres" type="Material" id=3]
 
 [node name="Kotze" type="Area2D" groups=[
+"obstacle",
 "obstacles",
 ]]
+material = ExtResource( 3 )
 script = ExtResource( 2 )
 object_name = "Kotze"
 probability = 100.0
@@ -14,4 +17,5 @@ probability = 100.0
 polygon = PoolVector2Array( -12.9171, -8.41477, -2.44975, -12.2877, 5.92418, -12.183, 13.1467, -7.78673, 13.2514, 2.78534, 2.88863, 12.834, -6.17168, 11.3984, -14.3166, 5.00694 )
 
 [node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 3 )
 texture = ExtResource( 1 )

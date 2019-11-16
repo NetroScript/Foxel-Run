@@ -8,7 +8,14 @@ export var probability : float = 1
 var size : Vector2 
 
 func _ready():
+	add_to_group("obstacle", true)
+	
+	for child in get_children():
+		if child is Sprite:
+			child.material = preload("res://shaders/used/obstacle_glow.tres")
+	
 	size = get_size()
+	
 
 func get_name() -> String:
 	return object_name

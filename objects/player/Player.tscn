@@ -33,13 +33,14 @@ func set_map_size() -> void:
 # Called on resize for full responsiveness
 func _resize() -> void:
 	
-	# Our current method would prevent maximum size on maximize
-#	if OS.window_maximized:
-#		OS.max_window_size = Vector2(0, 0)
-#		OS.window_maximized = false
-#		OS.window_maximized = true
-#	else:
-	OS.max_window_size = Vector2(OS.window_size.y*max_width_factor, 1000000)
+	# Our current method would prevent maximum size on maximize, so we allow every resolution on maximize
+	if OS.window_maximized:
+		OS.max_window_size = Vector2(0, 0)
+		OS.window_maximized = false
+		OS.window_maximized = true
+	else:
+		# Prevent the aspect ratio being too wide
+		OS.max_window_size = Vector2(OS.window_size.y*max_width_factor, 1000000)
 	
 	set_map_size()
 "

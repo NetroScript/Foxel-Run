@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://graphics/obstacles/Trashbags.png" type="Texture" id=1]
+[ext_resource path="res://scripts/obstacles/Obstacle.gd" type="Script" id=2]
+
+[node name="Trashbags" type="Area2D"]
+script = ExtResource( 2 )
+object_name = "Trashbags"
+probability = 80.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -12.4798, -13.271, -5.94867, -15.448, 5.86009, -18.5486, 23.4743, -3.11149, 22.1549, 7.17994, 9.55445, 18.329, -16.6359, 17.2075, -23.4969, 4.54111, -16.7019, -7.79542 )
+
+[node name="Trashbags" type="Sprite" parent="."]
+texture = ExtResource( 1 )
