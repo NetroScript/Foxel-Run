@@ -11,7 +11,7 @@ script/source = "extends Camera2D
 
 # The height of the game
 var height : int = 180
-var max_width_factor : float = 3
+var max_width_factor : float = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,16 +25,22 @@ func set_map_size() -> void:
 	# To make up for the changed size, we need to zoom our camera out / in
 	zoom = Vector2(1,1) * (height / max(0.1, get_viewport_rect().size.y))
 	offset.x = (get_viewport_rect().size.x * 0.4)*zoom.x
-	print(offset)
+	
+	$\"../PlayerGUI\".scale = Vector2(1,1)/zoom/1.5
+
 
 
 # Called on resize for full responsiveness
 func _resize() -> void:
-	print(OS.window_size)
-
+	
+	# Our current method would prevent maximum size on maximize
+#	if OS.window_maximized:
+#		OS.max_window_size = Vector2(0, 0)
+#		OS.window_maximized = false
+#		OS.window_maximized = true
+#	else:
 	OS.max_window_size = Vector2(OS.window_size.y*max_width_factor, 1000000)
-	#if get_viewport_rect().size.y * max_width_factor < get_viewport_rect().size.x:
-		
+	
 	set_map_size()
 "
 
@@ -57,3 +63,27 @@ texture = ExtResource( 1 )
 offset = Vector2( 100, 0 )
 current = true
 script = SubResource( 1 )
+
+[node name="PlayerGUI" type="CanvasLayer" parent="."]
+follow_viewport_scale = 5.0
+
+[node name="HeartContainerMargin" type="MarginContainer" parent="PlayerGUI"]
+margin_right = 100.0
+margin_bottom = 40.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeartCon" type="HBoxContainer" parent="PlayerGUI/HeartContainerMargin"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 90.0
+margin_bottom = 30.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
