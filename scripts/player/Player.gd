@@ -4,15 +4,37 @@ class_name Player
 export var speed : float = 50
 var movement : float = 0
 export var health : int = 3 setget set_health
+export var max_health : int = 6
 var lastaction: int = 0
 var downpressed: bool = false
 var uppressed: bool = false
+var life_time : float = 0
+var invinciblity_left : float = 0
+
+onready var collider : Area2D = $Area2D
+onready var tween : Tween = $Tween
+
+var blinking_state : float = 0
 
 func _ready():
 	
 	set_health(health)
 	
-	pass
+	
+	collider.connect("area_entered", self, "area_entered")
+	
+
+
+func area_entered(area : Area2D) -> void:
+	
+	if invinciblity_left <= 0:
+		
+		if area is Obstacle:
+			if area.was_hit != true:
+				area.was_hit = true
+				self.health -= 1
+				invinciblity_left = 1
+				
 	
 	
 func set_health(value : int):
@@ -31,7 +53,13 @@ func set_health(value : int):
 	health = value
 	
 func _physics_process(delta : float) -> void:
+	invinciblity_left-=delta
+	life_time += delta
+	
 	delta = delta * Controller.speed_modifier
+	
+	
+
 	
 	position.x+=delta*50
 	position.y+=delta*speed*movement
@@ -46,6 +74,11 @@ func _physics_process(delta : float) -> void:
 		movement=-1
 	elif downpressed==true:
 		movement=1
+		
+		
+	if life_time > 20:
+		Controller.obstacle_amount + 1
+		Controller.speed_modifier = 1.4
 	
 		
 		

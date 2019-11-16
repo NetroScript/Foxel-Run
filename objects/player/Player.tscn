@@ -36,7 +36,7 @@ func set_map_size() -> void:
 
 	# To make up for the changed size, we need to zoom our camera out / in
 	zoom = Vector2(1,1) * (height / max(0.1, get_viewport_rect().size.y))
-	offset.x = (get_viewport_rect().size.x * 0.4)*zoom.x
+	offset.x = (get_viewport_rect().size.x * 0.3)*zoom.x
 	
 	$\"../PlayerGUI\".scale = Vector2(1,1)/zoom/1.5
 
@@ -102,3 +102,5 @@ custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="."]

@@ -4,7 +4,7 @@ class_name Background
 export var amount : int = 5
 export var texture : Texture
 onready var texture_width : int = texture.get_width()
-onready var despawn_border : int = texture_width*(amount/3)
+onready var despawn_border : int = texture_width*(amount/2)
 
 var texture_array : Array = Array()
 
@@ -13,6 +13,9 @@ var texture_array : Array = Array()
 onready var obstacle_handler : ObstacleHandler = $"../ObstacleHandler" as ObstacleHandler
 
 func _ready():
+	
+	yield($"../ObstacleHandler", "ready")
+	
 	var middle_object : int = amount/2
 	
 	for i in range(-middle_object, -middle_object+amount):
@@ -21,6 +24,8 @@ func _ready():
 		sprite.position = Vector2(i*texture_width, 0)
 		add_child(sprite)
 		texture_array.push_back(sprite)
+		if i > 0:
+			obstacle_handler.add_obstacles_in_area(Rect2(sprite.position-sprite.texture.get_size()/2, sprite.texture.get_size()))
 
 func _physics_process(delta : float) -> void:
 	delta = delta * Controller.speed_modifier
