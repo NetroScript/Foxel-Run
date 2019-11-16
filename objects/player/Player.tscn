@@ -48,7 +48,6 @@ script = ExtResource( 2 )
 polygon = PoolVector2Array( 11.0075, -10.611, 14.2473, -8.74812, 19.9169, -4.61739, 22.5898, -1.53959, 22.5898, 0.728258, 13.3564, 8.98972, 10.2786, 8.98972, 8.41568, 5.83093, -6.64934, 5.66894, -12.8049, 4.53501, -11.0231, -6.31828, 6.95777, -6.80425 )
 
 [node name="Node2D" parent="." instance=ExtResource( 3 )]
-amount = 150
 
 [node name="default" type="Sprite" parent="."]
 position = Vector2( -2.57352, -0.426775 )
