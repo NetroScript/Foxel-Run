@@ -4,7 +4,7 @@ class_name Background
 export var amount : int = 5
 export var texture : Texture
 onready var texture_width : int = texture.get_width()
-onready var despawn_border : int = texture_width*amount/3
+onready var despawn_border : int = texture_width*(amount/3)
 
 var texture_array : Array = Array()
 

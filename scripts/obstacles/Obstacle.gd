@@ -26,9 +26,23 @@ func get_probability() -> float:
 	
 func get_size() -> Vector2:
 	
-
-	if collider != null:
-		return utility.polygon_to_bounding(collider.polygon)
+	var get_size : Vector2 = Vector2(0, 0)
 	
-	return Vector2(0,0)
+	if collider == null:
+		collider = $CollisionPolygon2D as CollisionPolygon2D
+	
+	if collider != null:
+		get_size = utility.polygon_to_bounding(collider.polygon)
 
+	
+	return get_size
+
+func _physics_process(delta : float) -> void:
+	delta = delta * Controller.speed_modifier
+	
+	if get_global_transform_with_canvas().origin.x < -1000:
+		
+		get_parent().remove_child(self)
+		queue_free()
+		
+		set_physics_process(false)

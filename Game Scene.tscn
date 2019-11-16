@@ -1,49 +1,19 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://objects/obstacles/Kotze.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://graphics/background/Street.png" type="Texture" id=3]
 [ext_resource path="res://scripts/StreetController.gd" type="Script" id=4]
 [ext_resource path="res://scripts/obstacles/ObstacleHandler.gd" type="Script" id=5]
-[ext_resource path="res://objects/obstacles/Black Trashbag.tscn" type="PackedScene" id=6]
-[ext_resource path="res://objects/obstacles/Tonne.tscn" type="PackedScene" id=7]
-[ext_resource path="res://objects/obstacles/Trashbags.tscn" type="PackedScene" id=8]
 
 [node name="Running Scene" type="Node2D"]
 
 [node name="StreetController" type="Node2D" parent="."]
 script = ExtResource( 4 )
-amount = 10
+amount = 9
 texture = ExtResource( 3 )
-
-[node name="Node2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 118.016, 33.1263 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 scale = Vector2( 1, 1 )
-
-[node name="Kotze" parent="." instance=ExtResource( 1 )]
-position = Vector2( 44.5364, -33.0483 )
-
-[node name="Tonne" parent="." instance=ExtResource( 7 )]
-position = Vector2( 24.6149, 15.1339 )
-
-[node name="Black Trashbag" parent="." instance=ExtResource( 6 )]
-position = Vector2( 72.3338, -7.10401 )
-
-[node name="Trashbags" parent="." groups=[
-"obstacle",
-] instance=ExtResource( 8 )]
-position = Vector2( 10.7162, -32.1217 )
-
-[node name="Kotze2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 106.617, -41.8508 )
-
-[node name="Tonne2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 53.3389, 16.0605 )
-
-[node name="Black Trashbag2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 95.4983, 6.79469 )
 
 [node name="ObstacleHandler" type="Node2D" parent="."]
 script = ExtResource( 5 )

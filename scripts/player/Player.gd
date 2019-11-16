@@ -1,7 +1,7 @@
 extends Node2D
 class_name Player
 
-export var speed : float = 100
+export var speed : float = 50
 var movement : float = 0
 export var health : int = 3 setget set_health
 var lastaction: int = 0
@@ -33,7 +33,7 @@ func set_health(value : int):
 func _physics_process(delta : float) -> void:
 	delta = delta * Controller.speed_modifier
 	
-	position.x+=delta*150
+	position.x+=delta*50
 	position.y+=delta*speed*movement
 	position.y=clamp(position.y,-90,90)
 	

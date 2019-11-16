@@ -12,12 +12,12 @@ var size : Vector2
 func _init(scene_path : String):
 
 	self.scene_path = scene_path
-	obstacle_loaded = load(scene_path)
-	instance = obstacle_loaded.instance() as Obstacle
-	name = instance.get_name()
-	probability = instance.get_probability()
-	
+	self.obstacle_loaded = load(scene_path)
+	self.instance = obstacle_loaded.instance() as Obstacle
+	self.name = instance.get_name()
+	self.probability = instance.get_probability()
+
 	# Bounding box needs to be centered (-size/2) if drawn as rectangle
-	size = instance.size
+	self.size = instance.get_size()
 	
 
