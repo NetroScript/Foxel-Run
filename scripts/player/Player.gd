@@ -65,6 +65,9 @@ func _physics_process(delta : float) -> void:
 	position.y+=delta*speed*movement
 	position.y=clamp(position.y,-90,90)
 	
+	$"PlayerGUI/Polutedsmoke".position.y = - 180 - position.y
+	
+	
 	movement=0
 	#wenn beide gedrückt soll die letzte action gemacht werden
 	if uppressed==true && downpressed==true: 
