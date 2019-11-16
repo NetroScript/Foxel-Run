@@ -12,6 +12,7 @@ object_name = "Heart"
 probability = 50.0
 gain_points = 0
 gain_health = 1
+material_effect_speed = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -10.5506, -6.70869, -6.20247, -11.0568, 10.9343, -10.46, 11.1901, -0.229118, 0.191849, 12.2185, -10.8064, 0.452942 )

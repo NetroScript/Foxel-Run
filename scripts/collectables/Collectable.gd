@@ -9,7 +9,11 @@ var size : Vector2
 onready var collider : CollisionPolygon2D = $CollisionPolygon2D as CollisionPolygon2D
 export var gain_points : int = 500
 export var gain_health : int = 0
+export var gain_invinciblity : float = 0
 export var spawn_inside_path : bool = true
+export var set_player_material : Material 
+export var material_effect_speed : float = 1
+export var material_reset_time : float = 0
 
 func _ready():
 	add_to_group("collectable", true)

@@ -5,7 +5,7 @@ var player : Player
 
 var speed_modifier : float = 1 setget changed_speed
 
-var obstacle_amount : int = 2
+var obstacle_amount : int = 8
 
 var locals : String = "en" setget _changed_language
 var languages_available : Array = ["en", "de"]

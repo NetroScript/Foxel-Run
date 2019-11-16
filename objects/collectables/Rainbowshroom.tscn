@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://shaders/used/collectable_glow.tres" type="Material" id=1]
 [ext_resource path="res://shaders/HueShift.shader" type="Shader" id=2]
 [ext_resource path="res://graphics/collectables/rainbowshroom.png" type="Texture" id=3]
 [ext_resource path="res://scripts/collectables/Collectable.gd" type="Script" id=4]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 2 )
+shader_param/hueAdjust = null
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
@@ -16,7 +20,12 @@ script = ExtResource( 4 )
 object_name = "Rainbowshroom"
 probability = 10.0
 gain_points = 1200
+gain_health = 1
+gain_invinciblity = 8.0
 spawn_inside_path = false
+set_player_material = SubResource( 2 )
+material_effect_speed = 3.0
+material_reset_time = 8.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -2.79287, -14.6487, 7.53882, -15.9819, 13.1631, -8.0071, 14.4393, -0.540565, 13.4061, 12.1606, 5.46859, 17.0203, -9.28812, 13.715, -12.9172, -7.60212 )

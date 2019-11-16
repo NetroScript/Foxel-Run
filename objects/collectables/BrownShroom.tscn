@@ -11,6 +11,7 @@ script = ExtResource( 2 )
 object_name = "Brown Shroom"
 probability = 200.0
 gain_points = 100
+material_effect_speed = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -7.87067, -5.48667, -3.09198, -11.0753, 5.41246, -10.7513, 7.8423, -5.97264, 6.06042, -0.141018, 0.471779, 9.98332, -7.4657, 10.0643 )

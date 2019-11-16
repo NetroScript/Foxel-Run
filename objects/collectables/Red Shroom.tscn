@@ -11,6 +11,7 @@ script = ExtResource( 2 )
 object_name = "Red Shroom"
 probability = 100.0
 gain_points = 250
+material_effect_speed = 0.0
 
 [node name="redshroom" type="Sprite" parent="."]
 material = ExtResource( 3 )

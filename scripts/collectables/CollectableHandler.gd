@@ -46,7 +46,7 @@ func get_random_weightened_collectable() -> CollectableInfo:
 func add_collectables_in_area(area : Rect2, player_collision_line : PoolVector2Array, player_height : int) -> void:
 	
 	
-	if randf() < 0.3:
+	if randf() < 0.25:
 	
 		var current_collectable_info : CollectableInfo = get_random_weightened_collectable()
 		
