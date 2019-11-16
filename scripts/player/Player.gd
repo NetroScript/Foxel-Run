@@ -33,7 +33,7 @@ func set_health(value : int):
 func _physics_process(delta : float) -> void:
 	delta = delta * Controller.speed_modifier
 	
-	position.x+=delta*200
+	position.x+=delta*150
 	position.y+=delta*speed*movement
 	position.y=clamp(position.y,-90,90)
 	
