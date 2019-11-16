@@ -35,7 +35,7 @@ func _physics_process(delta : float) -> void:
 			
 			remove_child(current_sprite)
 			current_sprite.queue_free()
-			print("Removed old street object")
+			#print("Removed old street object")
 			
 			var new_sprite : Sprite = Sprite.new()
 			new_sprite.texture = texture
@@ -48,7 +48,7 @@ func _physics_process(delta : float) -> void:
 			add_child(new_sprite)
 			texture_array.push_back(new_sprite)
 			
-			print("added new street object")
+			#print("added new street object")
 			
 			
 

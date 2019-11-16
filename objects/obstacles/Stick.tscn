@@ -1,12 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://graphics/obstacles/Stick.png" type="Texture" id=1]
+[ext_resource path="res://scripts/obstacles/Obstacle.gd" type="Script" id=2]
 
 [node name="Stick" type="Area2D"]
-
-[node name="Stick" type="Sprite" parent="."]
-position = Vector2( 31.3569, 23.6029 )
-texture = ExtResource( 1 )
+script = ExtResource( 2 )
+object_name = "Stick"
+probability = 100.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -31.0576, -23.0856 )
 polygon = PoolVector2Array( 41.9884, 17.8047, 35.4043, 9.26147, 29.4917, 12.2583, 28.3578, 22.4636, 18.3954, 33.5599, 21.9592, 36.0708, 31.3546, 26.2704, 40.993, 30.3201, 41.8839, 24.9745 )
+
+[node name="Stick" type="Sprite" parent="."]
+texture = ExtResource( 1 )
