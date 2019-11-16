@@ -7,6 +7,8 @@ func _ready():
 
 
 
+
+
 # Adapted from https://docs.godotengine.org/en/3.1/classes/class_directory.html
 # Returns all file names in a directory as an array
 func dir_contents(path : String) -> Array:

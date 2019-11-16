@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/collectables/Collectable.gd" type="Script" id=1]
+[ext_resource path="res://graphics/gui/Heart.png" type="Texture" id=2]
+[ext_resource path="res://shaders/used/collectable_glow.tres" type="Material" id=3]
+
+[node name="Heart" type="Area2D" groups=[
+"collectable",
+]]
+script = ExtResource( 1 )
+object_name = "Heart"
+probability = 50.0
+gain_points = 0
+gain_health = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -10.5506, -6.70869, -6.20247, -11.0568, 10.9343, -10.46, 11.1901, -0.229118, 0.191849, 12.2185, -10.8064, 0.452942 )
+
+[node name="Heart" type="Sprite" parent="."]
+material = ExtResource( 3 )
+texture = ExtResource( 2 )

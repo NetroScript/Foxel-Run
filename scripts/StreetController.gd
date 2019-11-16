@@ -54,10 +54,7 @@ func _physics_process(delta : float) -> void:
 			texture_array.push_back(new_sprite)
 			
 			#print("added new street object")
-			
-			
 
-	
 		var screen_position : Vector2 = get_global_transform_with_canvas().origin
 	
 	

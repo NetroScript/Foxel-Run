@@ -4,15 +4,20 @@ class_name Player
 export var speed : float = 50
 var movement : float = 0
 export var health : int = 3 setget set_health
-export var max_health : int = 6
+export var max_health : int = 5
 var lastaction: int = 0
 var downpressed: bool = false
 var uppressed: bool = false
 var life_time : float = 0
 var invinciblity_left : float = 0
 
+var time_till_next_score : float = 0
+
+var current_score : int = 0 setget set_score
+
 onready var collider : Area2D = $Area2D
 onready var tween : Tween = $Tween
+onready var score_label : Label = $"PlayerGUI2/Label"
 
 var blinking_state : float = 0
 
@@ -24,10 +29,20 @@ func _ready():
 	collider.connect("area_entered", self, "area_entered")
 	
 
-
 func area_entered(area : Area2D) -> void:
 	
-	if invinciblity_left <= 0:
+	if area is Collectable and !area.was_collected:
+		if area.gain_health > 0:
+			self.health += area.gain_health
+		current_score += area.gain_points
+		area.was_collected = true
+		
+		area.get_parent().remove_child(area)
+		
+		area.queue_free()
+		
+		
+	elif invinciblity_left <= 0:
 		
 		if area is Obstacle:
 			if area.was_hit != true:
@@ -35,9 +50,21 @@ func area_entered(area : Area2D) -> void:
 				self.health -= 1
 				invinciblity_left = 1
 				
+func set_score(value : int):
 	
+	if score_label != null:
+	
+		score_label.text = tr("CURRENT_SCORE") + str(value)
+	
+	current_score = value
 	
 func set_health(value : int):
+	
+	if value > 5:
+		value = 5
+	if value < 0:
+		die()
+	
 	var heart_container : HBoxContainer = $"PlayerGUI/HeartContainerMargin/HeartCon"
 	for child in heart_container.get_children():
 		heart_container.remove_child(child)
@@ -52,9 +79,18 @@ func set_health(value : int):
 		
 	health = value
 	
+func die() -> void:
+	pass
+	
 func _physics_process(delta : float) -> void:
 	invinciblity_left-=delta
 	life_time += delta
+	time_till_next_score += delta
+	
+	while time_till_next_score > 0.1:
+		time_till_next_score -= 0.1
+		self.current_score += 1
+	
 	
 	delta = delta * Controller.speed_modifier
 	

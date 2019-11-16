@@ -1,19 +1,22 @@
 tool
 extends Area2D
-class_name Obstacle
+class_name Collectable
 
-var was_hit : bool = false
+var was_collected : bool = false
 export var object_name : String = ""
 export var probability : float = 1
 var size : Vector2 
 onready var collider : CollisionPolygon2D = $CollisionPolygon2D as CollisionPolygon2D
+export var gain_points : int = 500
+export var gain_health : int = 0
+export var spawn_inside_path : bool = true
 
 func _ready():
-	add_to_group("obstacle", true)
+	add_to_group("collectable", true)
 	
 	for child in get_children():
 		if child is Sprite:
-			child.material = preload("res://shaders/used/obstacle_glow.tres")
+			child.material = preload("res://shaders/used/collectable_glow.tres")
 	
 	size = get_size()
 	
@@ -46,4 +49,3 @@ func _physics_process(delta : float) -> void:
 		queue_free()
 		
 		set_physics_process(false)
-

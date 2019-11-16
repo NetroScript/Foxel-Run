@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://graphics/collectables/brownshroom.png" type="Texture" id=1]
+[ext_resource path="res://scripts/collectables/Collectable.gd" type="Script" id=2]
+[ext_resource path="res://shaders/used/collectable_glow.tres" type="Material" id=3]
+
+[node name="BrownShroom" type="Area2D" groups=[
+"collectable",
+]]
+script = ExtResource( 2 )
+object_name = "Brown Shroom"
+probability = 200.0
+gain_points = 100
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -7.87067, -5.48667, -3.09198, -11.0753, 5.41246, -10.7513, 7.8423, -5.97264, 6.06042, -0.141018, 0.471779, 9.98332, -7.4657, 10.0643 )
+
+[node name="brownshroom" type="Sprite" parent="."]
+material = ExtResource( 3 )
+texture = ExtResource( 1 )

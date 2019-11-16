@@ -7,9 +7,10 @@ var weight_sum : float = 0
 var last_player_y : float = 0
 const player_height : int = 50
 
-onready var player_collision_helper_polygon : CollisionPolygon2D = $PlayerPathHelper/CollisionPolygon2D
-onready var player_collision_helper : Area2D = $PlayerPathHelper
+onready var player_collision_helper_polygon : CollisionPolygon2D = $PlayerPathHelper/CollisionPolygon2D as CollisionPolygon2D
+onready var player_collision_helper : Area2D = $PlayerPathHelper as Area2D
 
+onready var collectable_handler : CollectableHandler = $"../CollectableHandler" as CollectableHandler
 
 func _ready():
 	
@@ -29,8 +30,8 @@ func _ready():
 			
 			weight_sum += obstacle_info.probability
 			print("Loaded Obstacle: " + obstacle_info.name)
-			print("Obstacle size: " + str(obstacle_info.size))
-			
+	
+	yield(collectable_handler, "ready")
 
 	
 
@@ -93,24 +94,19 @@ func add_obstacles_in_area(area : Rect2):
 	for areas in player_collision_helper.get_overlapping_areas():
 	
 		#areas.modulate = Color.green
-
-		if reached_path_collisions > 0:
-			reached_path_collisions-=1
-		else:
-			remove_child(areas)
-			areas.queue_free()
+		if areas is Obstacle:
+			if reached_path_collisions > 0:
+				reached_path_collisions-=1
+			else:
+				remove_child(areas)
+				areas.queue_free()
 		#print("Removing")
 		
 		#print(areas)
 	
-#	# Wait for the collisions to set up
-#	yield(get_tree(), "idle_frame")
+	collectable_handler.add_collectables_in_area(area, collision_polygon, player_height)
+
 	
-#	for obstacle in added_obstacles:
-#
-#		var is_colliding_with_path : bool = player_collision_helper.overlaps_area(obstacle)
-#
-#		var is_valid : bool = false
 		
 
 	

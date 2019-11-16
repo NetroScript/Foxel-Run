@@ -32,7 +32,7 @@ void fragment() {
 			discard;
 		} else {
 			COLOR = effect_color;
-			COLOR.a = mix(0.8, 0.0, float(min_length - 1) / float(border));
+			COLOR.a = mix(0.5, 0.0, float(min_length - 1) / float(border));
 		}
 	}
 }

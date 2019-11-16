@@ -14,6 +14,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/StreetController.gd"
 }, {
+"base": "Area2D",
+"class": "Collectable",
+"language": "GDScript",
+"path": "res://scripts/collectables/Collectable.gd"
+}, {
+"base": "Node2D",
+"class": "CollectableHandler",
+"language": "GDScript",
+"path": "res://scripts/collectables/CollectableHandler.gd"
+}, {
+"base": "Reference",
+"class": "CollectableInfo",
+"language": "GDScript",
+"path": "res://scripts/collectables/CollectableInfo.gd"
+}, {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
@@ -41,6 +56,9 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Background": "",
+"Collectable": "",
+"CollectableHandler": "",
+"CollectableInfo": "",
 "GitAPI": "",
 "Obstacle": "",
 "ObstacleHandler": "",
@@ -113,6 +131,11 @@ down={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
  ]
 }
+
+[locale]
+
+locale_filter=[ 1, [  ] ]
+translations=PoolStringArray( "res://localisation/main.de.translation", "res://localisation/main.en.translation" )
 
 [rendering]
 
