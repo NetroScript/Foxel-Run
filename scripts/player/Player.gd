@@ -3,14 +3,32 @@ class_name Player
 
 export var speed : float = 50
 var movement : float = 0
-var health : int = 3
+export var health : int = 3 setget set_health
 var lastaction: int = 0
 var downpressed: bool = false
 var uppressed: bool = false
 
 func _ready():
 	
+	set_health(health)
+	
 	pass
+	
+	
+func set_health(value : int):
+	var heart_container : HBoxContainer = $"PlayerGUI/HeartContainerMargin/HeartCon"
+	for child in heart_container.get_children():
+		heart_container.remove_child(child)
+		child.queue_free()
+	
+	for i in range(value):
+		var heart : TextureRect = TextureRect.new()
+		
+		heart.texture = preload("res://graphics/gui/Heart.png")
+		
+		heart_container.add_child(heart)
+		
+	health = value
 	
 func _physics_process(delta : float) -> void:
 	delta = delta * Controller.speed_modifier
