@@ -19,36 +19,24 @@ var scancodedict:Dictionary ={
 	KEY_7:"play_sound",
 	KEY_8:"play_sound",
 	KEY_9:"play_sound",
-	KEY_ASCIICIRCUM:"",
-	KEY_SSHARP:"",
-	KEY_BACKSPACE:"",
 	KEY_DIRECTION_L:"",
 	KEY_DIRECTION_R:"",
-	KEY_STOP:"",
 	KEY_SPACE:"_togglepause",
-	KEY_ASTERISK:"",
-	KEY_PLUS:"",
-	KEY_COMMA :"",
-	KEY_MINUS:"",
-	KEY_PERIOD:"",
-	KEY_SLASH:"",
-	KEY_COLON:"",
-	KEY_SEMICOLON:"",
-	KEY_LESS:"",
-	KEY_A:"",
-	KEY_B:"",
-	KEY_C:"",
+	KEY_A:["set_screen_color", Color.blue],
+	
 	KEY_D:"_de",
 	KEY_E :"_en",
-	KEY_F:"",
-	KEY_G:"",
-	KEY_H:["methode", Color()],
+	KEY_F:["set_screen_color", Color.aliceblue],
+	KEY_G:["set_screen_color", Color.orange],
+	KEY_H:["set_screen_color", Color.wheat],
 	KEY_I:["_setsize",Vector2(200,200)],
-	KEY_J:"",
-	KEY_K:"",
-	KEY_L:"",
-	KEY_M:"",
-	KEY_N:"",
+	KEY_J:["set_screen_color", Color.brown],
+	KEY_K:["set_screen_color", Color.rosybrown],
+	KEY_L:["set_screen_color", Color.azure],
+	KEY_ODIAERESIS:["set_screen_color", Color.bisque],
+	KEY_ADIAERESIS:["set_screen_color", Color.chartreuse],
+	
+	KEY_Z:"_fullscreen",
 	KEY_O:["_setsize",Vector2(500,500)],
 	KEY_P:"_togglepause",
 	KEY_UDIAERESIS:["_setsize",Vector2(1280,720)],
@@ -56,11 +44,14 @@ var scancodedict:Dictionary ={
 	KEY_R:"_minimize",
 	KEY_T:"_maximize",
 	KEY_U:["_setsize",Vector2(1920,1080)],
-	KEY_V:"",
-	KEY_X:"",
+	
 	KEY_Y:"",
-	KEY_Z:"_fullscreen",
-	KEY_ODIAERESIS:""
+	KEY_X:"",
+	KEY_C:"",
+	KEY_V:"",
+	KEY_B:"",
+	KEY_N:"",
+	KEY_M:"",
 }
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -83,18 +74,19 @@ func _unhandled_input(event:InputEvent) ->void:
 					
 				
 				
-func _de()->void:
+func _de(scancode : int)->void:
 	#changes language to german
 	Controller.locals="de"
 	
-func _en()->void:
+func _en(scancode : int)->void:
 	#changes language to english
 	Controller.locals="en"
 
 func set_screen_color(color : Color, scancode : int)->void:
+	Controller.screen_modulate = color
 	pass
 
-func _togglepause()->void:
+func _togglepause(scancode : int)->void:
 	#pauses the game
 	
 	if Controller.speed_modifier > 0:
@@ -102,17 +94,17 @@ func _togglepause()->void:
 		Controller.speed_modifier=0
 	else:
 		Controller.speed_modifier = Controller.previous_modifier
-func _closegame()->void:
+func _closegame(scancode : int)->void:
 	get_tree().quit()
 	
-func _minimize()->void:
+func _minimize(scancode : int)->void:
 	OS.window_minimized=!OS.window_minimized
 
-func _maximize()->void:
+func _maximize(scancode : int)->void:
 	OS.window_maximized=!OS.window_maximized
 	
-func _fullscreen()->void:
+func _fullscreen(scancode : int)->void:
 	OS.window_fullscreen=!OS.window_fullscreen
 	
-func _setsize(size:Vector2)->void:
+func _setsize(size:Vector2, scancode : int)->void:
 	OS.window_size=size
