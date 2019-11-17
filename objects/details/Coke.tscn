@@ -6,9 +6,11 @@
 [node name="Coke" type="Sprite" groups=[
 "detail",
 ]]
-modulate = Color( 1, 1, 1, 0.730745 )
+modulate = Color( 1, 1, 1, 0.779034 )
+scale = Vector2( 1.2573, 1.2573 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 object_name = "Coke"
 probability = 40.0
 transparency_range = Vector2( 0.8, 0.7 )
+scale_range = Vector2( 0.7, 1.4 )
