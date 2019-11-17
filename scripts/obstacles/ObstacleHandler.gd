@@ -32,7 +32,9 @@ func _ready():
 			weight_sum += obstacle_info.probability
 			print("Loaded Obstacle: " + obstacle_info.name)
 	
-	yield(collectable_handler, "ready")
+	if collectable_handler != null:
+		
+		yield(collectable_handler, "ready")
 
 	
 
@@ -78,7 +80,7 @@ func add_obstacles_in_area(area : Rect2):
 
 
 		if current_obstacle != null:
-			current_obstacle.rotation = rand_range(0, 2*PI)
+			current_obstacle.rotation = rand_range(deg2rad(current_obstacle.allow_rotation.x), deg2rad(current_obstacle.allow_rotation.y))
 			add_child(current_obstacle)
 			current_obstacle.position.x = rand_range(area.position.x, area.position.x + area.size.x)
 			current_obstacle.position.y = rand_range(-90, 90)
@@ -105,7 +107,8 @@ func add_obstacles_in_area(area : Rect2):
 		
 		#print(areas)
 	
-	collectable_handler.add_collectables_in_area(area, collision_polygon, player_height)
+	if collectable_handler != null:
+		collectable_handler.add_collectables_in_area(area, collision_polygon, player_height)
 	detail_handler.add_details_in_area(area)
 	
 		

@@ -94,6 +94,7 @@ _global_script_class_icons={
 
 config/name="GameJam"
 run/main_scene="res://Main Menu.tscn"
+boot_splash/image="res://foxandshroom_scaled.png"
 config/icon="res://icon.png"
 
 [autoload]

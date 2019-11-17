@@ -1,3 +1,256 @@
-[gd_scene format=2]
+[gd_scene load_steps=21 format=2]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource path="res://fonts/PressStart2P.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/Main Menu Demo Level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Information.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/themes/main_menu.tres" type="Theme" id=4]
+[ext_resource path="res://scenes/Credits.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sounds/musik/mainmenu.ogg" type="AudioStream" id=6]
+
+[sub_resource type="World" id=1]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Viewport
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	# On window resize also call size_changed
+	_resize()
+	find_node(\"Camera2D\")._resize()
+	get_tree().get_root().connect(\"size_changed\", self, \"_resize\")
+	
+	
+	_resize()
+	yield(find_node(\"Camera2D\"), \"ready\")
+	find_node(\"Camera2D\")._resize()
+
+
+
+
+# Called on resize for full responsiveness
+func _resize() -> void:
+	
+	size = OS.window_size
+	
+
+"
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="DynamicFont" id=8]
+size = 30
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="GDScript" id=9]
+script/source = "extends Button
+
+func _ready():
+	connect(\"pressed\", self, \"action\")
+
+# Do the action of the button press
+func action() -> void:
+	get_tree().change_scene(\"res://Game Scene.tscn\")
+"
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="GDScript" id=11]
+script/source = "extends Button
+
+func _ready():
+	connect(\"pressed\", self, \"action\")
+
+# Do the action of the button press
+func action() -> void:
+	$\"../../../../Information\".show()
+"
+
+[sub_resource type="GDScript" id=12]
+script/source = "extends Button
+
+func _ready():
+	connect(\"pressed\", self, \"action\")
+
+# Do the action of the button press
+func action() -> void:
+	$\"../../../../Credits\".show()
+"
+
+[sub_resource type="GDScript" id=13]
+script/source = "extends Button
+
+func _ready():
+	connect(\"pressed\", self, \"action\")
+
+# Do the action of the button press
+func action() -> void:
+	if Controller.locals == \"en\":
+		Controller.locals = \"de\"
+	else:
+		Controller.locals = \"en\"
+"
+
+[sub_resource type="GDScript" id=14]
+script/source = "extends Button
+
+func _ready():
+	
+	if OS.get_name() == \"HTML5\":
+		hide()
+	
+	connect(\"pressed\", self, \"action\")
+
+# Do the action of the button press
+func action() -> void:
+	get_tree().quit()
+"
+
+[node name="Container" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 1920, 200 )
+world = SubResource( 1 )
+handle_input_locally = false
+usage = 0
+render_target_update_mode = 3
+script = SubResource( 2 )
+
+[node name="Demo Level Main Menu" parent="ViewportContainer/Viewport" instance=ExtResource( 2 )]
+
+[node name="StartMenu" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -225.0
+margin_right = 225.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="StartMenu"]
+margin_right = 450.0
+margin_bottom = 600.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu/CenterContainer"]
+margin_top = 145.0
+margin_right = 450.0
+margin_bottom = 455.0
+custom_constants/separation = 40
+
+[node name="Start" type="Button" parent="StartMenu/CenterContainer/VBoxContainer"]
+margin_right = 450.0
+margin_bottom = 30.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+text = "START"
+script = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="How to play" type="Button" parent="StartMenu/CenterContainer/VBoxContainer"]
+margin_top = 70.0
+margin_right = 450.0
+margin_bottom = 100.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+text = "HOW_TO_PLAY"
+script = SubResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Button" parent="StartMenu/CenterContainer/VBoxContainer"]
+margin_top = 140.0
+margin_right = 450.0
+margin_bottom = 170.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+text = "CREDITS"
+script = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Toggle Language" type="Button" parent="StartMenu/CenterContainer/VBoxContainer"]
+margin_top = 210.0
+margin_right = 450.0
+margin_bottom = 240.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+text = "TOGGLE_LANGUAGE"
+script = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="StartMenu/CenterContainer/VBoxContainer"]
+margin_top = 280.0
+margin_right = 450.0
+margin_bottom = 310.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+text = "EXIT"
+script = SubResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Information" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="Credits" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true

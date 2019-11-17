@@ -10,10 +10,11 @@
 ]]
 script = ExtResource( 1 )
 object_name = "car"
-probability = 100.0
+probability = 2.0
 sfx_name = "fox_hit_car"
 can_ignore_player_path = true
-movement = Vector2( -80, 0 )
+movement = Vector2( -70, 0 )
+allow_rotation = Vector2( -50, 50 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = ExtResource( 4 )

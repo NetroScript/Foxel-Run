@@ -6,7 +6,7 @@
 [node name="Rat" type="Sprite" groups=[
 "detail",
 ]]
-modulate = Color( 1, 1, 1, 0.401402 )
+modulate = Color( 1, 1, 1, 0.582565 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 object_name = "rat"

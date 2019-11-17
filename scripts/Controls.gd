@@ -22,6 +22,15 @@ signal changed_language
 signal music_speed_change
 
 
+
+func reset_values() -> void:
+	
+	speed_modifier = 1
+	music_speed_modifier = 1
+	obstacle_amount = 8
+	
+	pass
+
 # Setter for current language, changes the language on change
 func _changed_language(new_language : String) -> void:
 		locals = new_language
