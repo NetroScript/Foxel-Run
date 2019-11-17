@@ -127,6 +127,8 @@ func set_health(value : int):
 	health = value
 	
 func die() -> void:
+	$default.hide()
+	$deadfox.show()
 	Controller.speed_modifier = 0
 	$"PlayerGUI2/ColorRect".show()
 	$"PlayerGUI2/ColorRect/CenterContainer/Label".text = tr("YOU_LOST") + str(current_score) + "\n"
