@@ -1,0 +1,140 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://fonts/Default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://gui/themes/main_menu.tres" type="Theme" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Panel
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+# Stuff to do on input -> closing this menu on escape
+func _input(event : InputEvent) -> void:
+	if event is InputEventKey and event.scancode == KEY_ESCAPE and event.is_pressed() == false and visible:
+		hide()
+"
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 5.0
+content_margin_right = 5.0
+bg_color = Color( 0.760784, 0.109804, 0.109804, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.486275, 0, 0, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color( 0, 0, 0, 0.309804 )
+shadow_size = 3
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Label
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	connect(\"gui_input\", self, \"action\")
+
+# Stuff to do on click
+func action(event : InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+		get_parent().get_parent().hide()
+"
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	get_parent().get_parent().get_parent().get_parent().connect(\"resized\", self, \"resized\")
+	resized()
+
+# Called when parent changes size
+func resized() -> void:
+	rect_min_size.x = OS.window_size.x/1.3
+"
+
+[node name="Information" type="Panel"]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+theme = ExtResource( 2 )
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Close" type="Label" parent="VBoxContainer"]
+margin_right = 17.0
+margin_bottom = 16.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 0
+custom_styles/normal = SubResource( 2 )
+text = "x"
+align = 2
+script = SubResource( 3 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 20.0
+margin_right = 819.0
+margin_bottom = 480.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer"]
+margin_right = 819.0
+margin_bottom = 460.0
+size_flags_horizontal = 15
+size_flags_vertical = 15
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/ScrollContainer/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 799.0
+margin_bottom = 440.0
+size_flags_horizontal = 15
+size_flags_vertical = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer/CenterContainer"]
+margin_left = 389.0
+margin_top = 49.0
+margin_right = 390.0
+margin_bottom = 370.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_constants/separation = 40
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 1.0
+margin_bottom = 321.0
+size_flags_horizontal = 15
+size_flags_vertical = 15
+custom_fonts/font = ExtResource( 1 )
+text = "MISC_INFORMATION"
+valign = 1
+autowrap = true
+script = SubResource( 4 )
