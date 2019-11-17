@@ -25,6 +25,8 @@ var game_volume : float = 50 setget _change_game_volume
 var store_settings : Array = ["locals", "game_volume", "highest_score"]
 var setting_save_file : File
 
+var is_gameover : bool = false
+
 signal speed_change
 signal changed_language
 signal music_speed_change

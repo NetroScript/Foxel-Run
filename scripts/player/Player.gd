@@ -127,6 +127,7 @@ func set_health(value : int):
 	health = value
 	
 func die() -> void:
+	Controller.is_gameover = true
 	$default.hide()
 	$deadfox.show()
 	Controller.speed_modifier = 0
