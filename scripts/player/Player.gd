@@ -96,7 +96,7 @@ func set_health(value : int):
 	if value >= 5:
 		value = 5
 		health = 5
-	if value < 0:
+	if value < 1:
 		die()
 	
 	var heart_container : HBoxContainer = $"PlayerGUI/HeartContainerMargin/HeartCon"
@@ -114,7 +114,19 @@ func set_health(value : int):
 	health = value
 	
 func die() -> void:
-	pass
+	Controller.speed_modifier = 0
+	$"PlayerGUI2/ColorRect".show()
+	$"PlayerGUI2/ColorRect/CenterContainer/Label".text = tr("YOU_LOST") + str(current_score) + "\n"
+	
+	if current_score > Controller.highest_score:
+		$"PlayerGUI2/ColorRect/CenterContainer/Label".text += tr("BROKE_HIGHSCORE") + str(Controller.highest_score) + "\n\n" + tr("RETURN_MAIN")
+		Controller.highest_score = current_score
+	else:
+		$"PlayerGUI2/ColorRect/CenterContainer/Label".text += tr("NO_HIGHSCORE")  + str(Controller.highest_score) + "\n\n" + tr("RETURN_MAIN")
+	
+	$"PlayerGUI2/ColorRect/CenterContainer/Label".show()
+	
+	
 	
 func _process(delta : float):
 	
