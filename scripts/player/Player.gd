@@ -46,6 +46,7 @@ func on_speed_change(speed : float) -> void:
 func area_entered(area : Area2D) -> void:
 	
 	if area is Collectable and !area.was_collected:
+		SoundController.play_sound(area.sfx_name)
 		if area.gain_health > 0:
 			self.health += area.gain_health
 		current_score += area.gain_points

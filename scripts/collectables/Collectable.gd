@@ -14,6 +14,7 @@ export var spawn_inside_path : bool = true
 export var set_player_material : Material 
 export var material_effect_speed : float = 1
 export var material_reset_time : float = 0
+export var sfx_name : String = "fox_rustle"
 
 func _ready():
 	add_to_group("collectable", true)

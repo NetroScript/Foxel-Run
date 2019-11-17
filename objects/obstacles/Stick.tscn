@@ -10,6 +10,7 @@
 script = ExtResource( 2 )
 object_name = "Stick"
 probability = 100.0
+sfx_name = "fox_hit_stick"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( -31.0576, -23.0856 )
