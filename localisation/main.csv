@@ -1,4 +1,5 @@
 id;de;en
+BROKE_HIGHSCORE;Du hast deinen bisherigen Rekord gebrochen - ;You broke your previous highscore - 
 CREDITS;Credits;Credits
 CREDIT_TEXT;"Programmierung, Grafiken, Sound Effekte, Design und das ganze Zeug:
 /u/Jack_5515
@@ -41,6 +42,7 @@ By: Martin Vorel
 "
 CURRENT_SCORE;Aktueller Score: ;Current Score: 
 EXIT;Verlassen;Exit
+HIGHSCORE;Höchster erreichter Score: ;Highscore: 
 HOW_TO_PLAY;Anleitung;How to play
 MISC_INFORMATION;"Der Fuchs hat einen magischen Pilz gegessen. 
 Doch leider hatte dieser nur negative Wirkungen und der Fuchs ist jetzt von Pilzen abhängig, die nur auf der Straße wachsen aus irgendeinem Grunde.
@@ -59,5 +61,12 @@ You can move the world around the fox with Up and Down or W and S.
 Objects with a yellow border damage you, objects with a white border can be picked up.
 Try to survive as long as possible
 "
+NO_HIGHSCORE;Du hast es nicht geschafften deinen bisherigen Rekord zu brechen - ;You weren't able to break your previous highscore - 
+RETURN_MAIN;Klicke eine beliebige Stelle an um ins Hauptmenü zurückzukehren.;Click anywhere to return to the main menu to try again.
 START;Starten;Start
 TOGGLE_LANGUAGE;English;Deutsch
+YOU_LOST;"Leider bist du im gesamtem Müll erstickt und hast verloren.
+
+Dein erreichter Score ist: ";"Well you lost, you got killed by all the pollution and trash.
+
+You reached the score: "
