@@ -1,3 +1,63 @@
 id;de;en
+CREDITS;Credits;Credits
+CREDIT_TEXT;"Programmierung, Grafiken, Sound Effekte, Design und das ganze Zeug:
+/u/Jack_5515
+poromufflon
+
+Musik von https://filmmusic.io
+""The Show Must Be Go"" by Kevin MacLeod (https://incompetech.com)
+""Carefree"" by Kevin MacLeod (https://incompetech.com)
+License: CC BY (http://creativecommons.org/licenses/by/4.0/)
+
+Splash Screen:
+
+Fuchs Bild von https://picalls.com/wild-fox/
+License: CC0 (https://creativecommons.org/publicdomain/zero/1.0/)
+Fotograf: Andreas Rønningen
+
+
+Pilz Bild von https://libreshot.com/fly-agaric-mushroom/
+License: CC0 (https://creativecommons.org/publicdomain/zero/1.0/)
+Fotograf: Martin Vorel
+";"Programming, graphics, sound effects, design and all the other stuff:
+/u/Jack_5515
+poromufflon
+
+Music from https://filmmusic.io
+""The Show Must Be Go"" by Kevin MacLeod (https://incompetech.com)
+""Carefree"" by Kevin MacLeod (https://incompetech.com)
+License: CC BY (http://creativecommons.org/licenses/by/4.0/)
+
+Splash Screen:
+
+Fox image from https://picalls.com/wild-fox/
+License: CC0 (https://creativecommons.org/publicdomain/zero/1.0/)
+By: Andreas Rønningen
+
+
+Mushroom image from https://libreshot.com/fly-agaric-mushroom/
+License: CC0 (https://creativecommons.org/publicdomain/zero/1.0/)
+By: Martin Vorel
+"
 CURRENT_SCORE;Aktueller Score: ;Current Score: 
 EXIT;Verlassen;Exit
+HOW_TO_PLAY;Anleitung;How to play
+MISC_INFORMATION;"Der Fuchs hat einen magischen Pilz gegessen. 
+Doch leider hatte dieser nur negative Wirkungen und der Fuchs ist jetzt von Pilzen abhängig, die nur auf der Straße wachsen aus irgendeinem Grunde.
+Darum machte sich der Fuchs auf in die Stadt, doch da war alles vollkommen verschmutzt und er hat ausversehen eine riesige Schmutz Lawine ausgelöst. Vor dieser rennt er jetzt weg und versucht gleichzeitig den Müll auf den Straßen auszuweichen und mehr Pilze zu essen.
+
+Steuerung: 
+Man kann die Welt um den Fuchs herum mit Hoch und Runter oder W und S bewegen.
+Objekte mit gelber Umrandung schaden dir, Objekte mit weißer Umrandung kannst du aufsammeln.
+Versuche so lang wie möglich zu Überleben
+";"The fox ate a magic mushroom. 
+But unfortunately it only had negative effects - everything looks so blocky and the fox is now dependent on shrooms that grow only on the street for some reason.
+That's why the fox set off for the city, but there everything was completely polluted and he accidentally caused a huge avalanche of dirt. Now he runs away from it and at the same time tries to avoid the garbage on the streets and eat more mushrooms.
+
+Control: 
+You can move the world around the fox with Up and Down or W and S.
+Objects with a yellow border damage you, objects with a white border can be picked up.
+Try to survive as long as possible
+"
+START;Starten;Start
+TOGGLE_LANGUAGE;English;Deutsch

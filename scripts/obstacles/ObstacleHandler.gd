@@ -32,7 +32,9 @@ func _ready():
 			weight_sum += obstacle_info.probability
 			print("Loaded Obstacle: " + obstacle_info.name)
 	
-	yield(collectable_handler, "ready")
+	if collectable_handler != null:
+		
+		yield(collectable_handler, "ready")
 
 	
 
@@ -105,7 +107,8 @@ func add_obstacles_in_area(area : Rect2):
 		
 		#print(areas)
 	
-	collectable_handler.add_collectables_in_area(area, collision_polygon, player_height)
+	if collectable_handler != null:
+		collectable_handler.add_collectables_in_area(area, collision_polygon, player_height)
 	detail_handler.add_details_in_area(area)
 	
 		
