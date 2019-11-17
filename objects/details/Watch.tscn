@@ -6,7 +6,7 @@
 [node name="Watch" type="Sprite" groups=[
 "detail",
 ]]
-modulate = Color( 1, 1, 1, 0.747575 )
+modulate = Color( 1, 1, 1, 0.748479 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
 object_name = "Watch"
