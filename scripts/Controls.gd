@@ -15,13 +15,22 @@ var languages_available : Array = ["en", "de"]
 var speed_modifier : float = 1 setget changed_speed
 var previous_modifier : float = speed_modifier
 
+var highest_score : int = 0
+
+var screen_modulate : Color = Color(1,1,1) setget changed_modulate
 
 
 signal speed_change
 signal changed_language
 signal music_speed_change
+signal changed_modulate
 
 
+func changed_modulate(new_modulate : Color):
+	
+	emit_signal("changed_modulate", new_modulate)
+	
+	screen_modulate = screen_modulate
 
 func reset_values() -> void:
 	

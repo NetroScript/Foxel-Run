@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/player/camera.gd" type="Script" id=1]
 [ext_resource path="res://scripts/player/Player.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://particles/polution.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/PressStart2P.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://graphics/Player/fox_animation.png" type="Texture" id=6]
+[ext_resource path="res://gui/themes/main_menu.tres" type="Theme" id=7]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Particles2D
@@ -36,13 +37,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 7, 6, 5, 4, 3, 2, 1, 0 ]
 }
 
-[sub_resource type="DynamicFont" id=4]
-size = 8
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 5 )
-
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=3]
 script/source = "extends Particles2D
 
 func _ready():
@@ -56,6 +51,40 @@ func on_speed_change(speed : float) -> void:
 	else:
 		speed_scale = 1
 "
+
+[sub_resource type="DynamicFont" id=4]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends ColorRect
+
+# Called on any input event as long as the control object is in focus
+func _gui_input(event : InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+		Controller.reset_values()
+		get_tree().change_scene(\"res://Main Menu.tscn\")
+"
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 30.0
+content_margin_right = 30.0
+content_margin_top = 30.0
+content_margin_bottom = 30.0
+bg_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 0.458824, 0.45098, 0.45098, 1 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color( 0, 0, 0, 0.341176 )
+shadow_size = 10
 
 [node name="Player" type="Node2D"]
 scale = Vector2( 2.5, 2.5 )
@@ -84,22 +113,6 @@ offset = Vector2( 100, 0 )
 current = true
 script = ExtResource( 1 )
 
-[node name="PlayerGUI2" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="PlayerGUI2"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -8.0
-rect_scale = Vector2( 4, 4 )
-rect_pivot_offset = Vector2( -5.18, 11.61 )
-size_flags_vertical = 0
-custom_fonts/font = SubResource( 4 )
-text = "Current Score: 69"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="PlayerGUI" type="CanvasLayer" parent="."]
 follow_viewport_scale = 5.0
 
@@ -107,7 +120,7 @@ follow_viewport_scale = 5.0
 position = Vector2( -123.31, -90 )
 scale = Vector2( 2.5, 2.5 )
 visibility_rect = Rect2( -60, -20, 200, 250 )
-script = SubResource( 5 )
+script = SubResource( 3 )
 
 [node name="HeartContainerMargin" type="MarginContainer" parent="PlayerGUI"]
 margin_top = 0.814514
@@ -127,6 +140,59 @@ margin_top = 5.0
 margin_right = 95.0
 margin_bottom = 34.0
 custom_constants/separation = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerGUI2" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="PlayerGUI2"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -8.0
+rect_scale = Vector2( 4, 4 )
+rect_pivot_offset = Vector2( -5.18, 11.61 )
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 4 )
+text = "Current Score: 69"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="PlayerGUI2"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_default_cursor_shape = 2
+color = Color( 0, 0, 0, 0.635294 )
+script = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="PlayerGUI2/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PlayerGUI2/ColorRect/CenterContainer"]
+visible = false
+margin_left = 362.0
+margin_top = 250.0
+margin_right = 662.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 300, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 7
+theme = ExtResource( 7 )
+custom_styles/normal = SubResource( 6 )
+text = "You Lost"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

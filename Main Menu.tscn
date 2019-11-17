@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://fonts/PressStart2P.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/Main Menu Demo Level.tscn" type="PackedScene" id=2]
@@ -6,6 +6,18 @@
 [ext_resource path="res://gui/themes/main_menu.tres" type="Theme" id=4]
 [ext_resource path="res://scenes/Credits.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sounds/musik/mainmenu.ogg" type="AudioStream" id=6]
+
+[sub_resource type="GDScript" id=15]
+script/source = "extends Control
+
+func _ready():
+	Controller.connect(\"changed_modulate\", self, \"on_speed_change\")
+	
+	
+func on_color_change(color : Color) -> void:
+	
+	modulate = color
+"
 
 [sub_resource type="World" id=1]
 
@@ -127,6 +139,7 @@ func action() -> void:
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 4 )
+script = SubResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
