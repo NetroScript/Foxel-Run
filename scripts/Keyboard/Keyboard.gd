@@ -69,8 +69,6 @@ func play_sound(scan_code : int) -> void:
 	
 	$Hit_Player.pitch_scale = 1 + float((scan_code+6)%11) / 5
 	$Hit_Player.play()
-	
-	pass
 
 func _unhandled_input(event:InputEvent) ->void:
 	if event is InputEventKey:
@@ -95,7 +93,4 @@ func _togglepause()->void:
 		Controller.speed_modifier=0
 	else:
 		Controller.speed_modifier = Controller.previous_modifier
-	
-	
-	pass
 	

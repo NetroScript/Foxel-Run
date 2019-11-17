@@ -57,10 +57,13 @@ script/source = "extends Button
 
 func _ready():
 	connect(\"pressed\", self, \"action\")
+	
 
-# Do the action of the button press
+# Do the action of the button presss
 func action() -> void:
+	SoundController.play_sound(\"mainmenu_click\")
 	get_tree().change_scene(\"res://Game Scene.tscn\")
+	
 "
 
 [sub_resource type="StyleBoxEmpty" id=10]
@@ -73,6 +76,7 @@ func _ready():
 
 # Do the action of the button press
 func action() -> void:
+	SoundController.play_sound(\"mainmenu_click\")
 	$\"../../../../Information\".show()
 "
 
@@ -84,6 +88,7 @@ func _ready():
 
 # Do the action of the button press
 func action() -> void:
+	SoundController.play_sound(\"mainmenu_click\")
 	$\"../../../../Credits\".show()
 "
 
@@ -95,6 +100,7 @@ func _ready():
 
 # Do the action of the button press
 func action() -> void:
+	SoundController.play_sound(\"mainmenu_click\")
 	if Controller.locals == \"en\":
 		Controller.locals = \"de\"
 	else:
@@ -113,6 +119,7 @@ func _ready():
 
 # Do the action of the button press
 func action() -> void:
+	SoundController.play_sound(\"mainmenu_click\")
 	get_tree().quit()
 "
 
