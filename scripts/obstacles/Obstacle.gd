@@ -7,6 +7,7 @@ export var object_name : String = ""
 export var probability : float = 1
 var size : Vector2 
 onready var collider : CollisionPolygon2D = $CollisionPolygon2D as CollisionPolygon2D
+export var sfx_name : String = "fox_hit"
 
 func _ready():
 	add_to_group("obstacle", true)
