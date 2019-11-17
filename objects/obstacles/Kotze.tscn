@@ -12,6 +12,7 @@ material = ExtResource( 3 )
 script = ExtResource( 2 )
 object_name = "Kotze"
 probability = 100.0
+sfx_name = "fox_throwup"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -12.9171, -8.41477, -2.44975, -12.2877, 5.92418, -12.183, 13.1467, -7.78673, 13.2514, 2.78534, 2.88863, 12.834, -6.17168, 11.3984, -14.3166, 5.00694 )

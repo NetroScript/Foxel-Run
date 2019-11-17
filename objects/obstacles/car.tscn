@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/obstacles/Obstacle.gd" type="Script" id=1]
+[ext_resource path="res://graphics/obstacles/car.png" type="Texture" id=2]
+[ext_resource path="res://particles/smoke.tscn" type="PackedScene" id=3]
+[ext_resource path="res://shaders/used/obstacle_glow.tres" type="Material" id=4]
+
+[node name="Car" type="Area2D" groups=[
+"obstacle",
+]]
+script = ExtResource( 1 )
+object_name = "car"
+probability = 100.0
+sfx_name = "fox_hit_car"
+can_ignore_player_path = true
+movement = Vector2( -80, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 4 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0.315559, 0.473335 )
+polygon = PoolVector2Array( 10.3707, -27.0895, -32.6726, -26.4084, -42.8057, -13.9556, -43.6603, 13.1476, -36.5793, 21.8158, -32.5505, 27.0655, 31.1756, 26.3984, 40.1466, 14.722, 45.1304, 14.2948, 46.1272, 10.7349, 41.9977, 8.02937, 40.5737, -16.0355, 33.1541, -23.4921, 30.6059, -27.2393 )
+
+[node name="Node2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 42.4122, 12.0656 )
+local_coords = false

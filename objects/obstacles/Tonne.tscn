@@ -10,6 +10,7 @@
 script = ExtResource( 2 )
 object_name = "Tonne"
 probability = 100.0
+sfx_name = "fox_hit_trashcan"
 
 [node name="Tonne" type="Sprite" parent="."]
 material = ExtResource( 3 )
