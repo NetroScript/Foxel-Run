@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/details/Detail.gd" type="Script" id=1]
+[ext_resource path="res://graphics/background/details/street_damage_1.png" type="Texture" id=2]
+
+[node name="StreetDamage" type="Sprite" groups=[
+"detail",
+]]
+modulate = Color( 1, 1, 1, 0.382867 )
+scale = Vector2( 0.807188, 0.807188 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+object_name = "Street_1"
+probability = 150.0
+transparency_range = Vector2( 0.3, 0.6 )
+scale_range = Vector2( 0.5, 1.5 )
