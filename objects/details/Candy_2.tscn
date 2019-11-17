@@ -6,8 +6,8 @@
 [node name="Candy_2" type="Sprite" groups=[
 "detail",
 ]]
-modulate = Color( 1, 1, 1, 0.840761 )
-scale = Vector2( 1.05602, 1.05602 )
+modulate = Color( 1, 1, 1, 0.784668 )
+scale = Vector2( 0.802274, 0.802274 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
 object_name = "Candy_2"

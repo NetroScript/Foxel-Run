@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://graphics/background/details/backgrounddetails_can.png" type="Texture" id=1]
+[ext_resource path="res://scripts/details/Detail.gd" type="Script" id=2]
+
+[node name="can" type="Sprite" groups=[
+"detail",
+]]
+modulate = Color( 1, 1, 1, 0.758006 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+object_name = "Can"
+probability = 32.0
+transparency_range = Vector2( 0.75, 0.8 )

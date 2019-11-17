@@ -10,13 +10,13 @@
 script/source = "extends Node2D
 
 func _ready():
+	Controller.connect(\"drop_item\", self, \"drop_scene_item\")
 	pass
 
 
 func _process(delta : float):
 	position.x += delta * 70
 	
-	Controller.connect(\"drop_item\", self, \"drop_scene_item\")
 
 
 func drop_scene_item(scene_path : String) -> void:

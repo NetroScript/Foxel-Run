@@ -46,12 +46,12 @@ var scancodedict:Dictionary ={
 	KEY_U:["_setsize",Vector2(1920,1080)],
 	
 	KEY_Y:["spawn_object", "res://objects/details/Watch.tscn"],
-	KEY_X:"",
-	KEY_C:"",
-	KEY_V:"",
-	KEY_B:"",
-	KEY_N:"",
-	KEY_M:"",
+	KEY_X:["spawn_object","res://objects/details/Coke.tscn"],
+	KEY_C:["spawn_object","res://objects/details/Candy_1.tscn"],
+	KEY_V:["spawn_object","res://objects/details/Candy_2.tscn"],
+	KEY_B:["spawn_object","res://objects/details/can.tscn"],
+	KEY_N:["spawn_object","res://objects/details/deadfish.tscn"],
+	KEY_M:["spawn_object","res://objects/details/Bird Crap.tscn"],
 }
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
