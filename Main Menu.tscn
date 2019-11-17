@@ -12,7 +12,7 @@
 script/source = "extends Control
 
 func _ready():
-	Controller.connect(\"changed_modulate\", self, \"on_speed_change\")
+	Controller.connect(\"changed_modulate\", self, \"on_color_change\")
 	
 	
 func on_color_change(color : Color) -> void:
