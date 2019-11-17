@@ -6,9 +6,11 @@
 [node name="can" type="Sprite" groups=[
 "detail",
 ]]
-modulate = Color( 1, 1, 1, 0.758006 )
+modulate = Color( 1, 1, 1, 0.772 )
+scale = Vector2( 0.866243, 0.866243 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 object_name = "Can"
 probability = 32.0
 transparency_range = Vector2( 0.75, 0.8 )
+scale_range = Vector2( 0.7, 1.4 )

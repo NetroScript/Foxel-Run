@@ -6,11 +6,11 @@
 [node name="StreetDamage" type="Sprite" groups=[
 "detail",
 ]]
-modulate = Color( 1, 1, 1, 0.871775 )
+modulate = Color( 1, 1, 1, 0.539876 )
 scale = Vector2( 0.522371, 0.522371 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
 object_name = "Street_2"
 probability = 150.0
-transparency_range = Vector2( 0.5, 1 )
+transparency_range = Vector2( 0.4, 0.6 )
 scale_range = Vector2( 0.5, 1.5 )
