@@ -9,16 +9,16 @@ func _ready():
 	pass # Replace with function body.
 
 var scancodedict:Dictionary ={
-	KEY_0:"",
-	KEY_1:"",
-	KEY_2:"",
-	KEY_3:"",
-	KEY_4:"",
-	KEY_5:"",
-	KEY_6:"",
-	KEY_7:"",
-	KEY_8:"",
-	KEY_9:"",
+	KEY_0:"play_sound",
+	KEY_1:"play_sound",
+	KEY_2:"play_sound",
+	KEY_3:"play_sound",
+	KEY_4:"play_sound",
+	KEY_5:"play_sound",
+	KEY_6:"play_sound",
+	KEY_7:"play_sound",
+	KEY_8:"play_sound",
+	KEY_9:"play_sound",
 	KEY_ASCIICIRCUM:"",
 	KEY_SSHARP:"",
 	KEY_BACKSPACE:"",
@@ -65,12 +65,20 @@ var scancodedict:Dictionary ={
 #func _process(delta):
 #	pass
 
+func play_sound(scan_code : int) -> void:
+	
+	$Hit_Player.pitch_scale = 1 + float((scan_code+6)%11) / 5
+	$Hit_Player.play()
+	
+	pass
 
 func _unhandled_input(event:InputEvent) ->void:
 	if event is InputEventKey:
 		if event.pressed and !event.echo:
 			if event.scancode in scancodedict:
-				call(scancodedict[event.scancode])
+				call(scancodedict[event.scancode], event.scancode)
+				
+				
 func _de()->void:
 	#changes language to german
 	Controller.locals="de"
@@ -81,6 +89,13 @@ func _en()->void:
 	
 func _togglepause()->void:
 	#pauses the game
-	Controller.speed_modifier=0
+	
+	if Controller.speed_modifier > 0:
+		Controller.previous_modifier = Controller.speed_modifier
+		Controller.speed_modifier=0
+	else:
+		Controller.speed_modifier = Controller.previous_modifier
+	
+	
 	pass
 	

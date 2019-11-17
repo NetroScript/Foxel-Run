@@ -12,8 +12,8 @@ var obstacle_amount : int = 8
 var locals : String = "en" setget _changed_language
 var languages_available : Array = ["en", "de"]
 
-var speed_modifier : float = prevspeed_modifier
-var prevspeed_modifier: float = 1 setget changed_speed
+var speed_modifier : float = 1 setget changed_speed
+var previous_modifier : float = speed_modifier
 
 
 
