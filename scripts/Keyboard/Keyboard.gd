@@ -96,11 +96,13 @@ func set_screen_color(color : Color, scancode : int)->void:
 func _togglepause(scancode : int)->void:
 	#pauses the game
 	
-	if Controller.speed_modifier > 0:
-		Controller.previous_modifier = Controller.speed_modifier
-		Controller.speed_modifier=0
-	else:
-		Controller.speed_modifier = Controller.previous_modifier
+	if !Controller.is_gameover:
+	
+		if Controller.speed_modifier > 0:
+			Controller.previous_modifier = Controller.speed_modifier
+			Controller.speed_modifier=0
+		else:
+			Controller.speed_modifier = Controller.previous_modifier
 func _closegame(scancode : int)->void:
 	get_tree().quit()
 	
