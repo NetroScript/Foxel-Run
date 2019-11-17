@@ -61,6 +61,10 @@ func play_sound(scan_code : int) -> void:
 	
 	$Hit_Player.pitch_scale = 1 + float((scan_code+6)%11) / 5
 	$Hit_Player.play()
+	
+func train(scan_code:int)->void:
+	SoundController.play_sound("train")
+	pass
 
 func _unhandled_input(event:InputEvent) ->void:
 	if event is InputEventKey:
