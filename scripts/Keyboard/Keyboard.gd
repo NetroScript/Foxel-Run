@@ -26,13 +26,13 @@ var scancodedict:Dictionary ={
 	
 	KEY_D:"_de",
 	KEY_E :"_en",
-	KEY_F:["set_screen_color", Color.aliceblue],
+	KEY_F:["set_screen_color", Color.white],
 	KEY_G:["set_screen_color", Color.orange],
 	KEY_H:["set_screen_color", Color.wheat],
 	KEY_I:["_setsize",Vector2(200,200)],
 	KEY_J:["set_screen_color", Color.brown],
 	KEY_K:["set_screen_color", Color.rosybrown],
-	KEY_L:["set_screen_color", Color.azure],
+	KEY_L:["set_screen_color", Color.green],
 	KEY_ODIAERESIS:["set_screen_color", Color.bisque],
 	KEY_ADIAERESIS:["set_screen_color", Color.chartreuse],
 	
@@ -45,7 +45,7 @@ var scancodedict:Dictionary ={
 	KEY_T:"_maximize",
 	KEY_U:["_setsize",Vector2(1920,1080)],
 	
-	KEY_Y:"",
+	KEY_Y:["spawn_object", "res://objects/details/Watch.tscn"],
 	KEY_X:"",
 	KEY_C:"",
 	KEY_V:"",
@@ -76,7 +76,10 @@ func _unhandled_input(event:InputEvent) ->void:
 					call(scancodedict[event.scancode][0], scancodedict[event.scancode][1], event.scancode)
 					
 					
-				
+
+func spawn_object(path : String, scancode : int) -> void:
+	
+	Controller.drop_stuff(path)
 				
 func _de(scancode : int)->void:
 	#changes language to german

@@ -29,6 +29,7 @@ signal speed_change
 signal changed_language
 signal music_speed_change
 signal changed_modulate
+signal drop_item
 
 
 # Functions to save the current settings
@@ -48,6 +49,11 @@ func save_settings() -> void:
 	setting_save_file.store_var(to_save)
 	setting_save_file.close()
 
+
+func drop_stuff(scene_path : String):
+	
+	emit_signal("drop_item", scene_path)
+	
 
 # Load the settings from the settings file
 func load_settings() -> void:

@@ -37,8 +37,21 @@ func _ready():
 	
 	
 	Controller.connect("speed_change", self, "on_speed_change")
+	Controller.connect("drop_item", self, "drop_scene_item")
 	
+
+
+func drop_scene_item(scene_path : String) -> void:
+	var scene : PackedScene = load(scene_path) as PackedScene
 	
+	var obj : Node2D = scene.instance() as Node2D
+	obj.position = position 
+	obj.rotation = rand_range(0, 2*PI)
+	obj.position += Vector2(rand_range(-15,15), rand_range(-15,15))
+	
+	get_parent().add_child(obj)
+	
+
 func on_speed_change(speed : float) -> void:
 	
 	$default/AnimationPlayer.playback_speed = speed / 1.5
