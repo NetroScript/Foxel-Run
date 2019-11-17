@@ -4,6 +4,8 @@ class_name DetailHandler
 var detail_dictionary : Dictionary
 var weight_sum : float = 0
 
+export var minimal_amount : int = 5
+export var maximal_amount : int = 20
 
 func _ready():
 	
@@ -39,7 +41,7 @@ func get_random_weightened_detail() -> DetailInfo:
 	
 func add_details_in_area(area : Rect2) -> void:
 	
-	var amount : int = 2+randi()%7
+	var amount : int = minimal_amount+randi()%(maximal_amount-minimal_amount)
 
 	# Add our objects
 	for i in range(amount):

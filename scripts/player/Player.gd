@@ -26,6 +26,7 @@ var blinking_state : float = 0
 var material_reset_time : float = 0
 
 
+
 func _ready():
 	
 	set_health(health)
@@ -54,6 +55,9 @@ func area_entered(area : Area2D) -> void:
 			$default.material = area.set_player_material
 			material_reset_time = area.material_reset_time
 			extra_speed_up = area.material_effect_speed
+			Controller.music_speed_modifier = 1.2
+			
+		
 
 		
 		area.was_collected = true
@@ -131,6 +135,7 @@ func _physics_process(delta : float) -> void:
 	if $default.material != null and material_reset_time <= 0:
 		$default.material = null
 		extra_speed_up = 1
+		Controller.music_speed_modifier = 1
 	
 	if $default.material != null and material_reset_time > 0:
 		material_reset_time -= delta

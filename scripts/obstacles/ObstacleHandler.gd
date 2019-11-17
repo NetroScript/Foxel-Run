@@ -96,7 +96,7 @@ func add_obstacles_in_area(area : Rect2):
 	
 		#areas.modulate = Color.green
 		if areas is Obstacle:
-			if reached_path_collisions > 0:
+			if reached_path_collisions > 0 or areas.can_ignore_player_path:
 				reached_path_collisions-=1
 			else:
 				remove_child(areas)

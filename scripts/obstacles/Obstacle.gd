@@ -8,6 +8,9 @@ export var probability : float = 1
 var size : Vector2 
 onready var collider : CollisionPolygon2D = $CollisionPolygon2D as CollisionPolygon2D
 export var sfx_name : String = "fox_hit"
+export var can_ignore_player_path : bool = false
+export var movement : Vector2 = Vector2(0,0)
+var is_moving : bool = false
 var throw_away_state : bool = false
 var tween : Tween = Tween.new()
 
@@ -21,6 +24,9 @@ func _ready():
 	add_child(tween)
 	
 	size = get_size()
+	
+	if movement != Vector2(0,0):
+		is_moving = true
 	
 
 func get_name() -> String:
@@ -54,7 +60,12 @@ func throw_away() -> void:
 		tween.start()
 
 func _physics_process(delta : float) -> void:
+	
+	if is_moving:
+		position += movement * delta
+	
 	delta = delta * Controller.speed_modifier
+	
 	
 	
 	

@@ -4,20 +4,29 @@ class_name Detail
 
 export var object_name : String = ""
 export var probability : float = 1
-export(float, 0, 1) var transparency : float = 1 setget set_transparency
-var size : Vector2 
+export var transparency_range : Vector2 = Vector2(1,1) setget set_transparency
+export var scale_range : Vector2 = Vector2(1,1) setget set_scale_range
+var size : Vector2
 
 
 func _ready():
 	add_to_group("detail", true)
 	size = get_size()
-	modulate.a = transparency
+	modulate.a = rand_range(transparency_range.x, transparency_range.y)
 	
-func set_transparency(value : float) -> void:
+func set_transparency(value : Vector2) -> void:
 	
-	modulate.a = value
+	modulate.a = rand_range(value.x, value.y)
 	
-	transparency = value
+	transparency_range = value
+	
+func set_scale_range(value : Vector2) -> void:
+	
+	var tmp : float = rand_range(value.x, value.y)
+	
+	scale = Vector2(tmp, tmp)
+	
+	scale_range = value
 
 func get_name() -> String:
 	return object_name

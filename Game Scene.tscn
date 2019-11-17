@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/collectables/CollectableHandler.gd" type="Script" id=1]
 [ext_resource path="res://objects/player/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,18 @@
 [ext_resource path="res://scripts/obstacles/ObstacleHandler.gd" type="Script" id=5]
 [ext_resource path="res://scripts/maintheme.ogg" type="AudioStream" id=6]
 [ext_resource path="res://scripts/details/DetailHandler.gd" type="Script" id=7]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends AudioStreamPlayer
+
+func _ready():
+	Controller.connect(\"music_speed_change\", self, \"on_speed_change\")
+	
+	
+func on_speed_change(speed : float) -> void:
+	
+	pitch_scale = speed
+"
 
 [node name="Running Scene" type="Node2D"]
 
@@ -36,3 +48,4 @@ health = 8
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
+script = SubResource( 1 )
