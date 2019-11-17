@@ -5,11 +5,11 @@
 [ext_resource path="res://graphics/collectables/rainbowshroom.png" type="Texture" id=3]
 [ext_resource path="res://scripts/collectables/Collectable.gd" type="Script" id=4]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
 shader_param/hueAdjust = null
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 2 )
 shader_param/hueAdjust = null
 
@@ -23,7 +23,7 @@ gain_points = 1200
 gain_health = 1
 gain_invinciblity = 8.0
 spawn_inside_path = false
-set_player_material = SubResource( 2 )
+set_player_material = SubResource( 1 )
 material_effect_speed = 3.0
 material_reset_time = 8.0
 
@@ -35,5 +35,5 @@ material = ExtResource( 1 )
 texture = ExtResource( 3 )
 
 [node name="rainbowshroom" type="Sprite" parent="rainbowshroom"]
-material = SubResource( 1 )
+material = SubResource( 2 )
 texture = ExtResource( 3 )

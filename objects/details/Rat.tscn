@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://graphics/background/details/rat.png" type="Texture" id=1]
+[ext_resource path="res://scripts/details/Detail.gd" type="Script" id=2]
+
+[node name="Rat" type="Sprite" groups=[
+"detail",
+]]
+modulate = Color( 1, 1, 1, 0.401402 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+object_name = "rat"
+probability = 50.0
+transparency_range = Vector2( 0.4, 0.6 )

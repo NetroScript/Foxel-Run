@@ -29,10 +29,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/collectables/CollectableInfo.gd"
 }, {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://git_api.gdns"
+"base": "Sprite",
+"class": "Detail",
+"language": "GDScript",
+"path": "res://scripts/details/Detail.gd"
+}, {
+"base": "Node2D",
+"class": "DetailHandler",
+"language": "GDScript",
+"path": "res://scripts/details/DetailHandler.gd"
+}, {
+"base": "Reference",
+"class": "DetailInfo",
+"language": "GDScript",
+"path": "res://scripts/details/DetailInfo.gd"
 }, {
 "base": "Node",
 "class": "MultiSFX",
@@ -69,7 +79,9 @@ _global_script_class_icons={
 "Collectable": "",
 "CollectableHandler": "",
 "CollectableInfo": "",
-"GitAPI": "",
+"Detail": "",
+"DetailHandler": "",
+"DetailInfo": "",
 "MultiSFX": "",
 "Obstacle": "",
 "ObstacleHandler": "",
@@ -86,7 +98,6 @@ config/icon="res://icon.png"
 
 [autoload]
 
-UserData="res://addons/github-integration/scripts/user_data.gd"
 Controller="*res://scripts/Controls.gd"
 utility="*res://scripts/utility.gd"
 SoundController="*res://objects/SoundController.tscn"
@@ -101,7 +112,7 @@ enabled=PoolStringArray( "zylann.translation_editor" )
 
 [gdnative]
 
-singletons=[ "res://git_api.gdnlib" ]
+singletons=[  ]
 
 [importer_defaults]
 
