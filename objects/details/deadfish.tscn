@@ -6,9 +6,11 @@
 [node name="deadfish" type="Sprite" groups=[
 "detail",
 ]]
-modulate = Color( 1, 1, 1, 0.777156 )
+modulate = Color( 1, 1, 1, 0.777426 )
+scale = Vector2( 1.11985, 1.11985 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 object_name = "Deadfish"
 probability = 25.0
 transparency_range = Vector2( 0.8, 0.7 )
+scale_range = Vector2( 0.8, 1.6 )
