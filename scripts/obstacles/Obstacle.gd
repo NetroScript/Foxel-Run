@@ -14,7 +14,12 @@ var is_moving : bool = false
 var throw_away_state : bool = false
 var tween : Tween = Tween.new()
 
+export var allow_rotation : Vector2 = Vector2(-180, 180)
+
+
+
 func _ready():
+	
 	add_to_group("obstacle", true)
 	
 	for child in get_children():
@@ -61,15 +66,21 @@ func throw_away() -> void:
 
 func _physics_process(delta : float) -> void:
 	
-	if is_moving:
-		position += movement * delta
+	var screen_x : float = get_global_transform_with_canvas().origin.x
+	
+	if Engine.is_editor_hint():
+		return
+	
+	
+	if is_moving and screen_x > -100 and screen_x < OS.window_size.x + 100 :
+		position += movement.rotated(rotation) * delta
 	
 	delta = delta * Controller.speed_modifier
 	
 	
 	
 	
-	if get_global_transform_with_canvas().origin.x < -1000:
+	if screen_x < -1000:
 		
 		get_parent().remove_child(self)
 		queue_free()

@@ -80,7 +80,7 @@ func add_obstacles_in_area(area : Rect2):
 
 
 		if current_obstacle != null:
-			current_obstacle.rotation = rand_range(0, 2*PI)
+			current_obstacle.rotation = rand_range(deg2rad(current_obstacle.allow_rotation.x), deg2rad(current_obstacle.allow_rotation.y))
 			add_child(current_obstacle)
 			current_obstacle.position.x = rand_range(area.position.x, area.position.x + area.size.x)
 			current_obstacle.position.y = rand_range(-90, 90)

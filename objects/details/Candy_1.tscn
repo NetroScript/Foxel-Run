@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/details/Detail.gd" type="Script" id=1]
+[ext_resource path="res://graphics/background/details/backgrounddetails_trashcandy.png" type="Texture" id=2]
+
+[node name="Candy_1" type="Sprite" groups=[
+"detail",
+]]
+modulate = Color( 1, 1, 1, 0.715221 )
+scale = Vector2( 0.982204, 0.982204 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+object_name = "Candy_1"
+probability = 100.0
+transparency_range = Vector2( 0.6, 0.9 )
+scale_range = Vector2( 0.8, 1.2 )
