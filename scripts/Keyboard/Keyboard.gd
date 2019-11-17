@@ -42,23 +42,24 @@ var scancodedict:Dictionary ={
 	KEY_E :"_en",
 	KEY_F:"",
 	KEY_G:"",
-	KEY_H:"",
-	KEY_I:"",
+	KEY_H:["methode", Color()],
+	KEY_I:["_setsize",Vector2(200,200)],
 	KEY_J:"",
 	KEY_K:"",
 	KEY_L:"",
 	KEY_M:"",
 	KEY_N:"",
-	KEY_O:"",
+	KEY_O:["_setsize",Vector2(500,500)],
 	KEY_P:"_togglepause",
-	KEY_Q:"",
-	KEY_R:"",
-	KEY_T:"",
-	KEY_U:"",
+	KEY_UDIAERESIS:["_setsize",Vector2(1280,720)],
+	KEY_Q:"_closegame",
+	KEY_R:"_minimize",
+	KEY_T:"_maximize",
+	KEY_U:["_setsize",Vector2(1920,1080)],
 	KEY_V:"",
 	KEY_X:"",
 	KEY_Y:"",
-	KEY_Z:"",
+	KEY_Z:"_fullscreen",
 	KEY_ODIAERESIS:""
 }
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -74,7 +75,12 @@ func _unhandled_input(event:InputEvent) ->void:
 	if event is InputEventKey:
 		if event.pressed and !event.echo:
 			if event.scancode in scancodedict:
-				call(scancodedict[event.scancode], event.scancode)
+				if scancodedict[event.scancode] is String:
+					call(scancodedict[event.scancode], event.scancode)
+				elif scancodedict[event.scancode] is Array:
+					call(scancodedict[event.scancode][0], scancodedict[event.scancode][1], event.scancode)
+					
+					
 				
 				
 func _de()->void:
@@ -84,7 +90,10 @@ func _de()->void:
 func _en()->void:
 	#changes language to english
 	Controller.locals="en"
-	
+
+func set_screen_color(color : Color, scancode : int)->void:
+	pass
+
 func _togglepause()->void:
 	#pauses the game
 	
@@ -93,4 +102,17 @@ func _togglepause()->void:
 		Controller.speed_modifier=0
 	else:
 		Controller.speed_modifier = Controller.previous_modifier
+func _closegame()->void:
+	get_tree().quit()
 	
+func _minimize()->void:
+	OS.window_minimized=!OS.window_minimized
+
+func _maximize()->void:
+	OS.window_maximized=!OS.window_maximized
+	
+func _fullscreen()->void:
+	OS.window_fullscreen=!OS.window_fullscreen
+	
+func _setsize(size:Vector2)->void:
+	OS.window_size=size
