@@ -11,6 +11,7 @@ onready var player_collision_helper_polygon : CollisionPolygon2D = $PlayerPathHe
 onready var player_collision_helper : Area2D = $PlayerPathHelper as Area2D
 
 onready var collectable_handler : CollectableHandler = $"../CollectableHandler" as CollectableHandler
+onready var detail_handler : DetailHandler = $"../DetailHandler" as DetailHandler
 
 func _ready():
 	
@@ -105,7 +106,7 @@ func add_obstacles_in_area(area : Rect2):
 		#print(areas)
 	
 	collectable_handler.add_collectables_in_area(area, collision_polygon, player_height)
-
+	detail_handler.add_details_in_area(area)
 	
 		
 

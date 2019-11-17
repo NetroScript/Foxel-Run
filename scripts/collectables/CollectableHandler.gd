@@ -22,10 +22,6 @@ func _ready():
 			
 			weight_sum += collectable_info.probability
 			print("Loaded collectable: " + collectable_info.name)
-			print("collectable size: " + str(collectable_info.size))
-			
-
-	
 
 			
 func get_random_weightened_collectable() -> CollectableInfo:

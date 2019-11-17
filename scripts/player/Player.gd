@@ -63,12 +63,18 @@ func area_entered(area : Area2D) -> void:
 		area.queue_free()
 		
 		
-	elif invinciblity_left <= 0:
+	elif area is Obstacle:
 		
-		if area is Obstacle:
+		if area.was_hit != true and extra_speed_up > 1:
+			area.was_hit = true
+			area.throw_away()
+		
+		if area.was_hit != true and extra_speed_up <= 1:
+			SoundController.play_sound(area.sfx_name)
+		
+		if invinciblity_left <= 0:
 			if area.was_hit != true:
 				area.was_hit = true
-				SoundController.play_sound(area.sfx_name)
 				self.health -= 1
 				invinciblity_left = 1.5
 				

@@ -8,6 +8,8 @@ export var probability : float = 1
 var size : Vector2 
 onready var collider : CollisionPolygon2D = $CollisionPolygon2D as CollisionPolygon2D
 export var sfx_name : String = "fox_hit"
+var throw_away_state : bool = false
+var tween : Tween = Tween.new()
 
 func _ready():
 	add_to_group("obstacle", true)
@@ -15,6 +17,8 @@ func _ready():
 	for child in get_children():
 		if child is Sprite:
 			child.material = preload("res://shaders/used/obstacle_glow.tres")
+	
+	add_child(tween)
 	
 	size = get_size()
 	
@@ -37,9 +41,22 @@ func get_size() -> Vector2:
 
 	
 	return get_size
+	
+func throw_away() -> void:
+	if !throw_away_state:
+		throw_away_state = true
+		
+		var time : float = rand_range(0.3, 0.8)
+		
+		tween.interpolate_property(self, "position", position, position + Vector2(rand_range(-100,20), sign(rand_range(-1, 1))*rand_range(50,130)), time, Tween.TRANS_EXPO, Tween.EASE_OUT)
+		scale = Vector2(0.8, 0.8)
+		tween.interpolate_property(self, "scale", scale, Vector2(1.5,1.5), time, Tween.TRANS_BOUNCE, Tween.EASE_OUT)
+		tween.start()
 
 func _physics_process(delta : float) -> void:
 	delta = delta * Controller.speed_modifier
+	
+	
 	
 	if get_global_transform_with_canvas().origin.x < -1000:
 		
