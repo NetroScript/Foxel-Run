@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://graphics/background/details/frog.png" type="Texture" id=1]
+[ext_resource path="res://scripts/details/Detail.gd" type="Script" id=2]
+
+[node name="Frog" type="Sprite" groups=[
+"detail",
+]]
+modulate = Color( 1, 1, 1, 0.674303 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+object_name = "Frog"
+probability = 10.0
+transparency_range = Vector2( 0.7, 0.6 )
