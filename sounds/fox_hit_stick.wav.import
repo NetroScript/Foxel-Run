@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fox_hit_stick.wav-3757a57de1e99baeebb005705bf7a7ac.sample"
+
+[deps]
+
+source_file="res://sounds/fox_hit_stick.wav"
+dest_files=[ "res://.import/fox_hit_stick.wav-3757a57de1e99baeebb005705bf7a7ac.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

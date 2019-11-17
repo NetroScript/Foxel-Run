@@ -30,9 +30,17 @@ func _ready():
 	
 	set_health(health)
 	
+	$default/AnimationPlayer.play("Player_Running")
 	
 	collider.connect("area_entered", self, "area_entered")
 	
+	
+	Controller.connect("speed_change", self, "on_speed_change")
+	
+	
+func on_speed_change(speed : float) -> void:
+	
+	$default/AnimationPlayer.playback_speed = speed / 1.5
 
 func area_entered(area : Area2D) -> void:
 	
