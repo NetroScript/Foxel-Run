@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/fox_rascheln.wav-3a01acc2295f964df7b9afc4cea8a71b.sample"
+path="res://.import/fox_rustle.wav-329bce17c7c1360384c98e14ee6b6de5.sample"
 
 [deps]
 
-source_file="res://sounds/fox_rascheln.wav"
-dest_files=[ "res://.import/fox_rascheln.wav-3a01acc2295f964df7b9afc4cea8a71b.sample" ]
+source_file="res://sounds/fox_rustle.wav"
+dest_files=[ "res://.import/fox_rustle.wav-329bce17c7c1360384c98e14ee6b6de5.sample" ]
 
 [params]
 

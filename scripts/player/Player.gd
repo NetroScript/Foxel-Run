@@ -68,6 +68,7 @@ func area_entered(area : Area2D) -> void:
 		if area is Obstacle:
 			if area.was_hit != true:
 				area.was_hit = true
+				SoundController.play_sound(area.sfx_name)
 				self.health -= 1
 				invinciblity_left = 1.5
 				
