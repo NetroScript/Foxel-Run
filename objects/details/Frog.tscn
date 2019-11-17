@@ -6,9 +6,9 @@
 [node name="Frog" type="Sprite" groups=[
 "detail",
 ]]
-modulate = Color( 1, 1, 1, 0.674303 )
+modulate = Color( 1, 1, 1, 0.433589 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 object_name = "Frog"
 probability = 10.0
-transparency_range = Vector2( 0.7, 0.6 )
+transparency_range = Vector2( 0.5, 0.4 )
