@@ -61,5 +61,7 @@ z_as_relative = false
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = 1.0
 autoplay = true
+bus = "Music"
 script = SubResource( 2 )
