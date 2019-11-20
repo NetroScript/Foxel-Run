@@ -8,6 +8,8 @@
 [node name="Car" type="Area2D" groups=[
 "obstacle",
 ]]
+z_index = 1000
+z_as_relative = false
 script = ExtResource( 1 )
 object_name = "car"
 probability = 2.0

@@ -13,10 +13,10 @@ script/source = "extends Node2D
 
 func _ready():
 	Controller.connect(\"changed_modulate\", self, \"on_color_change\")
-	
-	
+
+
 func on_color_change(color : Color) -> void:
-	
+
 	modulate = color
 "
 
