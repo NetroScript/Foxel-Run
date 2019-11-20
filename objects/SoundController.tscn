@@ -57,13 +57,16 @@ script = ExtResource( 1 )
 
 [node name="mainmenu_click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+bus = "SFX"
 script = ExtResource( 1 )
 
 [node name="fox_hit_car" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+bus = "SFX"
 script = ExtResource( 1 )
 
 [node name="train" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+bus = "SFX"
 script = ExtResource( 1 )
 maximal_amount = 2
