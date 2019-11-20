@@ -122,7 +122,7 @@ script = ExtResource( 1 )
 follow_viewport_scale = 5.0
 
 [node name="Polutedsmoke" parent="PlayerGUI" instance=ExtResource( 4 )]
-position = Vector2( -123.31, -90 )
+position = Vector2( -115, -90 )
 scale = Vector2( 2.5, 2.5 )
 visibility_rect = Rect2( -60, -20, 200, 250 )
 script = SubResource( 3 )
