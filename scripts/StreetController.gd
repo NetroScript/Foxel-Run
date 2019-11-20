@@ -12,7 +12,7 @@ var texture_array : Array = Array()
 
 onready var obstacle_handler : ObstacleHandler = $"../ObstacleHandler" as ObstacleHandler
 
-func _ready():
+func _ready() -> void:
 
 	yield($"../ObstacleHandler", "ready")
 
@@ -56,6 +56,3 @@ func _physics_process(delta : float) -> void:
 			#print("added new street object")
 
 		var screen_position : Vector2 = get_global_transform_with_canvas().origin
-
-
-	pass

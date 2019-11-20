@@ -13,7 +13,7 @@ onready var player_collision_helper : Area2D = $PlayerPathHelper as Area2D
 onready var collectable_handler : CollectableHandler
 onready var detail_handler : DetailHandler = $"../DetailHandler" as DetailHandler
 
-func _ready():
+func _ready() -> void:
 
 
 	if get_parent().has_node("CollectableHandler"):
@@ -58,7 +58,7 @@ func get_random_weightened_obstacle() -> ObstacleInfo:
 	return obstacle_dictionary[obstacle_dictionary.keys()[0]] as ObstacleInfo
 
 
-func add_obstacles_in_area(area : Rect2):
+func add_obstacles_in_area(area : Rect2) -> void:
 
 
 	var collision_polygon : PoolVector2Array = generate_player_path(area.size.x, area.position.x)

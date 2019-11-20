@@ -27,7 +27,7 @@ var material_reset_time : float = 0
 
 
 
-func _ready():
+func _ready() -> void:
 
 	set_health(health)
 
@@ -99,7 +99,7 @@ func area_entered(area : Area2D) -> void:
 				self.health -= 1
 
 
-func set_score(value : int):
+func set_score(value : int) -> void:
 
 	if score_label != null:
 
@@ -107,7 +107,7 @@ func set_score(value : int):
 
 	current_score = value
 
-func set_health(value : int):
+func set_health(value : int) -> void:
 
 	if value >= 5:
 		value = 5
@@ -152,7 +152,7 @@ func set_died_text(locas : String = "") -> void:
 		$"PlayerGUI2/ColorRect/CenterContainer/Label".text += tr("NO_HIGHSCORE")  + str(Controller.highest_score) + "\n\n" + tr("RETURN_MAIN")
 
 
-func _process(delta : float):
+func _process(delta : float) -> void:
 
 	delta = delta * Controller.speed_modifier
 
@@ -202,7 +202,7 @@ func _physics_process(delta : float) -> void:
 
 
 	movement=0
-	#wenn beide gedrückt soll die letzte action gemacht werden
+	# when both buttons are pressed, the most recent action should be done
 	if uppressed==true && downpressed==true:
 		movement=lastaction
 
@@ -211,6 +211,8 @@ func _physics_process(delta : float) -> void:
 	elif downpressed==true:
 		movement=1
 
+
+	# Declaring the different difficulties
 	if life_time > 300  and difficulty == 9:
 		Controller.speed_modifier = 3.5
 		Controller.obstacle_amount += 6
@@ -273,7 +275,7 @@ func _physics_process(delta : float) -> void:
 func _unhandled_input(event:InputEvent) ->void:
 	if event.is_action_pressed("up"):
 		uppressed=true
-		#setze die letzte Bewegung auf up
+		# set last action to up
 		lastaction=-1
 
 	elif event.is_action_released("up"):
@@ -281,7 +283,7 @@ func _unhandled_input(event:InputEvent) ->void:
 
 	if event.is_action_pressed("down"):
 		downpressed=true
-		#setze die letzte Bewegung auf down
+		# set last action to down
 		lastaction=1
 
 	elif event.is_action_released("down"):

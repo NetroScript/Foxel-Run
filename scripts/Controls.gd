@@ -52,7 +52,7 @@ func save_settings() -> void:
 	setting_save_file.close()
 
 
-func drop_stuff(scene_path : String):
+func drop_stuff(scene_path : String) -> void:
 
 	emit_signal("drop_item", scene_path)
 
@@ -87,7 +87,7 @@ func _change_game_volume(new_volume : float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(new_volume/100))
 	pass
 
-func changed_modulate(new_modulate : Color):
+func changed_modulate(new_modulate : Color) -> void:
 
 	emit_signal("changed_modulate", new_modulate)
 
@@ -110,19 +110,19 @@ func _changed_language(new_language : String) -> void:
 	save_settings()
 
 
-func changed_music_speed(new_speed : float):
+func changed_music_speed(new_speed : float) -> void:
 
 	emit_signal("music_speed_change", new_speed)
 
 	music_speed_modifier = new_speed
 
-func changed_speed(new_speed : float):
+func changed_speed(new_speed : float) -> void:
 
 	emit_signal("speed_change", new_speed)
 
 	speed_modifier = new_speed
 
-func _ready():
+func _ready() -> void:
 
 	randomize()
 	load_settings()
@@ -132,6 +132,6 @@ func _ready():
 
 	pass
 
-func reapply()->void:
+func reapply() -> void:
 	_changed_language(locals)
 	_change_game_volume(game_volume)

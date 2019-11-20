@@ -1,13 +1,5 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 var scancodedict:Dictionary ={
 	KEY_0:"play_sound",
 	KEY_1:"play_sound",
@@ -53,9 +45,6 @@ var scancodedict:Dictionary ={
 	KEY_N:["spawn_object","res://objects/details/deadfish.tscn"],
 	KEY_M:["spawn_object","res://objects/details/Bird Crap.tscn"],
 }
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func play_sound(scan_code : int) -> void:
 

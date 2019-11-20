@@ -3,13 +3,13 @@ class_name ObstacleInfo
 
 var probability : float = 0
 var scene_path : String = ""
-var instance : Obstacle 
+var instance : Obstacle
 var obstacle_loaded : PackedScene
 var name : String = ""
-var size : Vector2 
+var size : Vector2
 
 
-func _init(scene_path : String):
+func _init(scene_path : String) -> void:
 
 	self.scene_path = scene_path
 	self.obstacle_loaded = load(scene_path)
@@ -19,5 +19,5 @@ func _init(scene_path : String):
 
 	# Bounding box needs to be centered (-size/2) if drawn as rectangle
 	self.size = instance.get_size()
-	
+
 

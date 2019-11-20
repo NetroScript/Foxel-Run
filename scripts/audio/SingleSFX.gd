@@ -53,6 +53,6 @@ func play_sound() -> bool:
 
 	return false
 
-func enable(number : int):
+func enable(number : int) -> void:
 	ready_state[number] = true
 	currently_running -= 1
