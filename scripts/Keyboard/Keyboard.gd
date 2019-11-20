@@ -23,7 +23,7 @@ var scancodedict:Dictionary ={
 	KEY_DIRECTION_R:"",
 	KEY_SPACE:"_togglepause",
 	KEY_A:["set_screen_color", Color.blue],
-	
+
 	KEY_D:"_de",
 	KEY_E :"_en",
 	KEY_F:["set_screen_color", Color.white],
@@ -35,7 +35,7 @@ var scancodedict:Dictionary ={
 	KEY_L:["set_screen_color", Color.green],
 	KEY_ODIAERESIS:["set_screen_color", Color.bisque],
 	KEY_ADIAERESIS:["set_screen_color", Color.chartreuse],
-	
+
 	KEY_Z:"_fullscreen",
 	KEY_O:["_setsize",Vector2(500,500)],
 	KEY_P:"_togglepause",
@@ -44,7 +44,7 @@ var scancodedict:Dictionary ={
 	KEY_R:"_minimize",
 	KEY_T:"_maximize",
 	KEY_U:["_setsize",Vector2(1920,1080)],
-	
+
 	KEY_Y:["spawn_object", "res://objects/details/Watch.tscn"],
 	KEY_X:["spawn_object","res://objects/details/Coke.tscn"],
 	KEY_C:["spawn_object","res://objects/details/Candy_1.tscn"],
@@ -58,10 +58,10 @@ var scancodedict:Dictionary ={
 #	pass
 
 func play_sound(scan_code : int) -> void:
-	
+
 	$Hit_Player.pitch_scale = 1 + float((scan_code+6)%11) / 5
 	$Hit_Player.play()
-	
+
 func train(scan_code:int)->void:
 	SoundController.play_sound("train")
 	pass
@@ -74,17 +74,17 @@ func _unhandled_input(event:InputEvent) ->void:
 					call(scancodedict[event.scancode], event.scancode)
 				elif scancodedict[event.scancode] is Array:
 					call(scancodedict[event.scancode][0], scancodedict[event.scancode][1], event.scancode)
-					
-					
+
+
 
 func spawn_object(path : String, scancode : int) -> void:
-	
+
 	Controller.drop_stuff(path)
-				
+
 func _de(scancode : int)->void:
 	#changes language to german
 	Controller.locals="de"
-	
+
 func _en(scancode : int)->void:
 	#changes language to english
 	Controller.locals="en"
@@ -95,9 +95,9 @@ func set_screen_color(color : Color, scancode : int)->void:
 
 func _togglepause(scancode : int)->void:
 	#pauses the game
-	
+
 	if !Controller.is_gameover:
-	
+
 		if Controller.speed_modifier > 0:
 			Controller.previous_modifier = Controller.speed_modifier
 			Controller.speed_modifier=0
@@ -105,15 +105,15 @@ func _togglepause(scancode : int)->void:
 			Controller.speed_modifier = Controller.previous_modifier
 func _closegame(scancode : int)->void:
 	get_tree().quit()
-	
+
 func _minimize(scancode : int)->void:
 	OS.window_minimized=!OS.window_minimized
 
 func _maximize(scancode : int)->void:
 	OS.window_maximized=!OS.window_maximized
-	
+
 func _fullscreen(scancode : int)->void:
 	OS.window_fullscreen=!OS.window_fullscreen
-	
+
 func _setsize(size:Vector2, scancode : int)->void:
 	OS.window_size=size

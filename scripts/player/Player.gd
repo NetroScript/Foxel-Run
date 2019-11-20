@@ -38,7 +38,7 @@ func _ready():
 
 	Controller.connect("speed_change", self, "on_speed_change")
 	Controller.connect("drop_item", self, "drop_scene_item")
-	
+
 	Controller.connect("changed_language", self, "set_died_text")
 
 
