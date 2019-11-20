@@ -6,10 +6,10 @@ var scene_path : String = ""
 var instance : Collectable
 var collectable_loaded : PackedScene
 var name : String = ""
-var size : Vector2 
+var size : Vector2
 
 
-func _init(scene_path : String):
+func _init(scene_path : String) -> void:
 
 	self.scene_path = scene_path
 	self.collectable_loaded = load(scene_path)
@@ -19,5 +19,5 @@ func _init(scene_path : String):
 
 	# Bounding box needs to be centered (-size/2) if drawn as rectangle
 	self.size = instance.get_size()
-	
+
 

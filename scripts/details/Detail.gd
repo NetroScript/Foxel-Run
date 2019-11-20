@@ -9,7 +9,7 @@ export var scale_range : Vector2 = Vector2(1,1) setget set_scale_range
 var size : Vector2
 
 
-func _ready():
+func _ready() -> void:
 	add_to_group("detail", true)
 	size = get_size()
 	modulate.a = rand_range(transparency_range.x, transparency_range.y)

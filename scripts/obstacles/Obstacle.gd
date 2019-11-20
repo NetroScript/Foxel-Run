@@ -17,7 +17,7 @@ export var allow_rotation : Vector2 = Vector2(-180, 180)
 
 
 
-func _ready():
+func _ready() -> void:
 
 	add_to_group("obstacle", true)
 
