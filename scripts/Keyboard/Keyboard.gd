@@ -1,6 +1,7 @@
 extends Node2D
 
 var scancodedict:Dictionary ={
+	# "Soundboard"
 	KEY_0:"play_sound",
 	KEY_1:"play_sound",
 	KEY_2:"play_sound",
@@ -11,23 +12,23 @@ var scancodedict:Dictionary ={
 	KEY_7:"play_sound",
 	KEY_8:"play_sound",
 	KEY_9:"play_sound",
-	KEY_DIRECTION_L:"",
-	KEY_DIRECTION_R:"",
-	KEY_SPACE:"_togglepause",
-	KEY_A:["set_screen_color", Color.blue],
 
 	KEY_D:"_de",
 	KEY_E :"_en",
+	KEY_SPACE:"_togglepause",
+
+	# Change colors
+	KEY_A:["set_screen_color", Color.blue],
 	KEY_F:["set_screen_color", Color.white],
 	KEY_G:["set_screen_color", Color.orange],
 	KEY_H:["set_screen_color", Color.wheat],
-	KEY_I:["_setsize",Vector2(200,200)],
 	KEY_J:["set_screen_color", Color.brown],
 	KEY_K:["set_screen_color", Color.rosybrown],
 	KEY_L:["set_screen_color", Color.green],
 	KEY_ODIAERESIS:["set_screen_color", Color.bisque],
 	KEY_ADIAERESIS:["set_screen_color", Color.chartreuse],
 
+	# Misc window control
 	KEY_Z:"_fullscreen",
 	KEY_O:["_setsize",Vector2(500,500)],
 	KEY_P:"_togglepause",
@@ -36,7 +37,10 @@ var scancodedict:Dictionary ={
 	KEY_R:"_minimize",
 	KEY_T:"_maximize",
 	KEY_U:["_setsize",Vector2(1920,1080)],
+	KEY_I:["_setsize",Vector2(200,200)],
 
+
+	# Spawn Objects
 	KEY_Y:["spawn_object", "res://objects/details/Watch.tscn"],
 	KEY_X:["spawn_object","res://objects/details/Coke.tscn"],
 	KEY_C:["spawn_object","res://objects/details/Candy_1.tscn"],
@@ -44,14 +48,33 @@ var scancodedict:Dictionary ={
 	KEY_B:["spawn_object","res://objects/details/can.tscn"],
 	KEY_N:["spawn_object","res://objects/details/deadfish.tscn"],
 	KEY_M:["spawn_object","res://objects/details/Bird Crap.tscn"],
+
+	# Control Audio
+	KEY_COMMA : ["set_audio", ["music", -10]],
+	KEY_PERIOD : ["set_audio", ["music", 10]],
+	KEY_LEFT : ["set_audio", ["game", -10]],
+	KEY_RIGHT : ["set_audio", ["game", 10]],
+	KEY_MINUS : ["set_audio", ["sfx", -10]],
+	KEY_PLUS : ["set_audio", ["sfx", 10]],
+	# + on our keyboard is equal in the engine
+	KEY_EQUAL : ["set_audio", ["sfx", 10]],
 }
+
+func set_audio(arguments : Array, scancode : int) -> void:
+	var current_value : float = Controller.get(arguments[0] + "_volume") as float
+
+	current_value = clamp(current_value + arguments[1], 0, 100)
+
+	Controller.set(arguments[0] + "_volume", current_value)
+	Controller.save_settings()
+
 
 func play_sound(scan_code : int) -> void:
 
 	$Hit_Player.pitch_scale = 1 + float((scan_code+6)%11) / 5
 	$Hit_Player.play()
 
-func train(scan_code:int)->void:
+func train(scan_code : int)->void:
 	SoundController.play_sound("train")
 	pass
 

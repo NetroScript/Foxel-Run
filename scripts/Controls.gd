@@ -20,9 +20,11 @@ var highest_score : int = 0
 var screen_modulate : Color = Color(1,1,1) setget changed_modulate
 
 var game_volume : float = 50 setget _change_game_volume
+var music_volume : float = 80 setget _change_music_volume
+var sfx_volume : float = 100 setget _change_sfx_volume
 
 # Settings which will be saved and loaded
-var store_settings : Array = ["locals", "game_volume", "highest_score"]
+var store_settings : Array = ["locals", "game_volume", "music_volume", "sfx_volume", "highest_score"]
 var setting_save_file : File
 
 var is_gameover : bool = false
@@ -81,11 +83,21 @@ func load_settings() -> void:
 	get_tree().call_group("listens_to_settings_change", "update_settings")
 
 
+# Setter for the music volume
+func _change_music_volume(new_volume : float) -> void:
+	music_volume = new_volume
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear2db(new_volume/100))
+
+# Setter for the sfx volume
+func _change_sfx_volume(new_volume : float) -> void:
+	sfx_volume = new_volume
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear2db(new_volume/100))
+
 # Setter for the game volume
 func _change_game_volume(new_volume : float) -> void:
 	game_volume = new_volume
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear2db(new_volume/100))
-	pass
+
 
 func changed_modulate(new_modulate : Color) -> void:
 
