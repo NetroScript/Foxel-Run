@@ -13,9 +13,9 @@ dest_files=[ "res://.import/fox_rustle.wav-329bce17c7c1360384c98e14ee6b6de5.samp
 
 force/8_bit=false
 force/mono=false
-force/max_rate=false
+force/max_rate=true
 force/max_rate_hz=44100
-edit/trim=false
-edit/normalize=false
+edit/trim=true
+edit/normalize=true
 edit/loop=false
 compress/mode=0

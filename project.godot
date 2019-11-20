@@ -92,10 +92,11 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GameJam"
+config/name="Foxel Run"
 run/main_scene="res://Main Menu.tscn"
 boot_splash/image="res://foxandshroom_scaled.png"
 config/icon="res://icon.png"
+config/windows_native_icon="res://favicon.ico"
 
 [autoload]
 
