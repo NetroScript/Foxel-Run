@@ -10,7 +10,7 @@
 ]]
 material = ExtResource( 3 )
 script = ExtResource( 2 )
-object_name = "Kotze"
+object_name = "Puke"
 probability = 100.0
 sfx_name = "fox_throwup"
 

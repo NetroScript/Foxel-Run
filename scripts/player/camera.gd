@@ -18,15 +18,15 @@ func set_map_size() -> void:
 	# To make up for the changed size, we need to zoom our camera out / in
 	zoom = Vector2(1,1) * (height / max(0.1, get_viewport_rect().size.y))
 	offset.x = (get_viewport_rect().size.x * 0.3)*zoom.x
-	
-	if $"../PlayerGUI" != null:
+
+	if get_parent().has_node("PlayerGUI"):
 		$"../PlayerGUI".scale = Vector2(1,1)/zoom/1.5
 
 
 
 # Called on resize for full responsiveness
 func _resize() -> void:
-	
+
 	# Our current method would prevent maximum size on maximize, so we allow every resolution on maximize
 	if OS.window_maximized:
 		OS.max_window_size = Vector2(0, 0)
@@ -35,6 +35,6 @@ func _resize() -> void:
 	else:
 		# Prevent the aspect ratio being too wide
 		OS.max_window_size = Vector2(OS.window_size.y*max_width_factor, 1000000)
-	
+
 	set_map_size()
 

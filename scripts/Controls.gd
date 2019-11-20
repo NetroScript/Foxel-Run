@@ -2,7 +2,7 @@ tool
 extends Node
 
 
-var player : Player 
+var player : Player
 
 
 var music_speed_modifier : float = 1 setget changed_music_speed
@@ -53,9 +53,9 @@ func save_settings() -> void:
 
 
 func drop_stuff(scene_path : String):
-	
+
 	emit_signal("drop_item", scene_path)
-	
+
 
 # Load the settings from the settings file
 func load_settings() -> void:
@@ -88,17 +88,17 @@ func _change_game_volume(new_volume : float) -> void:
 	pass
 
 func changed_modulate(new_modulate : Color):
-	
+
 	emit_signal("changed_modulate", new_modulate)
-	
+
 	screen_modulate = screen_modulate
 
 func reset_values() -> void:
-	
+
 	self.speed_modifier = 1
 	self.music_speed_modifier = 1
 	self.obstacle_amount = 8
-	
+
 	save_settings()
 
 # Setter for current language, changes the language on change
@@ -111,25 +111,25 @@ func _changed_language(new_language : String) -> void:
 
 
 func changed_music_speed(new_speed : float):
-	
+
 	emit_signal("music_speed_change", new_speed)
-	
+
 	music_speed_modifier = new_speed
 
 func changed_speed(new_speed : float):
-	
+
 	emit_signal("speed_change", new_speed)
-	
+
 	speed_modifier = new_speed
 
 func _ready():
-	
+
 	randomize()
 	load_settings()
 	reapply()
-	
-	
-	
+
+
+
 	pass
 
 func reapply()->void:

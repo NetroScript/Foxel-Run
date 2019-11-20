@@ -8,7 +8,7 @@
 "obstacle",
 ]]
 script = ExtResource( 2 )
-object_name = "Tonne"
+object_name = "TrashCan"
 probability = 100.0
 sfx_name = "fox_hit_trashcan"
 

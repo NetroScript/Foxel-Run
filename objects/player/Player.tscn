@@ -94,7 +94,7 @@ script = ExtResource( 2 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PoolVector2Array( 11.0075, -10.611, 14.2473, -8.74812, 19.9169, -4.61739, 22.5898, -1.53959, 22.5898, 0.728258, 13.3564, 8.98972, 10.2786, 8.98972, 8.41568, 5.83093, -6.64934, 5.66894, -12.8049, 4.53501, -11.0231, -6.31828, 6.95777, -6.80425 )
+polygon = PoolVector2Array( 12.4218, -7.309, 16.7859, -7.2448, 19.9169, -4.61739, 23.1495, -1.30076, 23.0097, 1.00692, 18.4174, 6.84064, 12.6017, 7.3203, 8.41568, 5.83093, -6.43089, 4.90111, -8.45649, 3.25041, -8.45649, -3.32458, 8.63933, -6.49808 )
 
 [node name="dust" parent="." instance=ExtResource( 3 )]
 speed_scale = 0.5
@@ -188,8 +188,8 @@ custom_constants/margin_bottom = 20
 visible = false
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 520.0
-margin_bottom = 120.13
+margin_right = 1004.0
+margin_bottom = 120.0
 rect_min_size = Vector2( 300, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 7
